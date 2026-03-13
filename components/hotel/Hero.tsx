@@ -21,13 +21,10 @@ export default function Hero() {
           Абхазия · Пицунда · Чёрное море
         </p>
         <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-light leading-none tracking-wide text-balance mb-8">
-          Grand Resort
-          <br />
-          <span className="italic font-light">Пицунда</span>
+          Добро пожаловать в гостиницу Sunrise
         </h1>
         <p className="text-white/80 text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-10 font-light">
-          Роскошный отдых на берегу лазурного Чёрного моря,
-          в объятиях знаменитых пицундских сосен.
+          Лучший отдых на побережье
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
