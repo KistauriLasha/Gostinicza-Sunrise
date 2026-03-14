@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Waves, Leaf, Utensils, Umbrella, Car, Baby } from 'lucide-react'
+import { Waves, Leaf, Umbrella, Car, Baby } from 'lucide-react'
 
 const services = [
   {
@@ -13,12 +13,6 @@ const services = [
     title: 'СПА-центр',
     desc: 'Широкий выбор массажей, процедур и оздоровительных программ.',
     image: '/images/spa.jpg',
-  },
-  {
-    icon: <Utensils size={28} />,
-    title: 'Ресторан',
-    desc: 'Авторская кухня на основе местных продуктов с видом на море.',
-    image: '/images/restaurant.jpg',
   },
   {
     icon: <Umbrella size={28} />,
@@ -74,8 +68,8 @@ export default function Services() {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {services.slice(2, 4).map((s) => (
+        <div className="grid md:grid-cols-2 gap-8 mb-8">
+          {services.slice(2, 3).map((s) => (
             <div key={s.title} className="relative h-60 overflow-hidden group md:col-span-1">
               <Image
                 src={s.image!}
@@ -93,7 +87,7 @@ export default function Services() {
           ))}
           {/* last two plain cards */}
           <div className="flex flex-col gap-8">
-            {services.slice(4).map((s) => (
+            {services.slice(3).map((s) => (
               <div key={s.title} className="bg-secondary p-6 flex gap-4 items-start">
                 <div className="text-primary mt-1">{s.icon}</div>
                 <div>
