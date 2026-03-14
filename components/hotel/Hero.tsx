@@ -7,7 +7,7 @@ export default function Hero() {
       {/* Background image */}
       <Image
         src="/images/hero.jpg"
-        alt="Гостиница Пицунда Grand Resort — вид на море"
+        alt="Гостиница Sunrise — вид на море"
         fill
         priority
         className="object-cover object-center"

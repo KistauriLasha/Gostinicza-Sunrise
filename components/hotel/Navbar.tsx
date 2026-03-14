@@ -37,14 +37,14 @@ export default function Navbar() {
               scrolled ? 'text-foreground' : 'text-white'
             }`}
           >
-            ПИЦУНДА
+            SUNRISE
           </span>
           <span
             className={`text-xs tracking-[0.25em] uppercase transition-colors ${
               scrolled ? 'text-muted-foreground' : 'text-white/70'
             }`}
           >
-            Grand Resort
+            Гостиница
           </span>
         </Link>
 
