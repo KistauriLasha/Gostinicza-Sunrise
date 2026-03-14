@@ -22,7 +22,7 @@ export default function Footer() {
               Навигация
             </p>
             <ul className="flex flex-col gap-3">
-              {['Номера', 'Услуги', 'Ресторан', 'Галерея', 'Контакты'].map((item) => (
+              {['Номера', 'Услуги', 'Галерея', 'Контакты'].map((item) => (
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
@@ -41,7 +41,7 @@ export default function Footer() {
               Услуги
             </p>
             <ul className="flex flex-col gap-3">
-              {['Бассейн', 'СПА', 'Ресторан', 'Пляж', 'Трансфер', 'Детский клуб'].map((item) => (
+              {['Бассейн', 'СПА', 'Пляж', 'Трансфер', 'Детский клуб'].map((item) => (
                 <li key={item}>
                   <span className="text-sm text-primary-foreground/70">{item}</span>
                 </li>

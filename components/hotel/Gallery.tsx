@@ -10,7 +10,6 @@ const photos = [
   { src: '/images/pool.jpg', alt: 'Бассейн с видом на море' },
   { src: '/images/room-suite.jpg', alt: 'Номер люкс' },
   { src: '/images/room-standard.jpg', alt: 'Стандартный номер' },
-  { src: '/images/restaurant.jpg', alt: 'Ресторан Апсны' },
   { src: '/images/spa.jpg', alt: 'СПА-центр' },
   { src: '/images/beach.jpg', alt: 'Вид на море' },
 ]
