@@ -7,9 +7,9 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <p className="font-serif text-2xl font-medium tracking-wider mb-1">ПИЦУНДА</p>
+            <p className="font-serif text-2xl font-medium tracking-wider mb-1">SUNRISE</p>
             <p className="text-xs tracking-[0.25em] uppercase text-primary-foreground/50 mb-4">
-              Grand Resort
+              Гостиница
             </p>
             <p className="text-primary-foreground/60 text-sm leading-relaxed">
               Лучший курортный отель на черноморском побережье Абхазии.
@@ -61,11 +61,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-3 items-center text-sm text-primary-foreground/70">
                 <Phone size={14} className="shrink-0 text-accent" />
-                +7 (840) 222-11-00
-              </li>
-              <li className="flex gap-3 items-center text-sm text-primary-foreground/70">
-                <Mail size={14} className="shrink-0 text-accent" />
-                info@pitsunda-resort.com
+                +7 (940) 920-43-73
               </li>
             </ul>
           </div>
@@ -73,7 +69,7 @@ export default function Footer() {
 
         <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-primary-foreground/40">
-            © 2025 Grand Resort Пицунда. Все права защищены.
+            © 2025 Гостиница Sunrise. Все права защищены.
           </p>
           <div className="flex gap-6">
             {['Политика конфиденциальности', 'Условия бронирования'].map((link) => (

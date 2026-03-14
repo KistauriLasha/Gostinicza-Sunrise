@@ -14,7 +14,7 @@ export default function Contacts() {
           <div className="w-12 h-px bg-primary mx-auto mt-6" />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12 mb-16">
+        <div className="grid md:grid-cols-2 gap-12 mb-16 max-w-2xl mx-auto">
           {[
             {
               icon: <MapPin size={24} />,
@@ -24,17 +24,7 @@ export default function Contacts() {
             {
               icon: <Phone size={24} />,
               title: 'Телефон',
-              lines: ['+7 (840) 222-11-00', '+7 (940) 765-43-21'],
-            },
-            {
-              icon: <Mail size={24} />,
-              title: 'Email',
-              lines: ['info@pitsunda-resort.com', 'booking@pitsunda-resort.com'],
-            },
-            {
-              icon: <Clock size={24} />,
-              title: 'Ресепшен',
-              lines: ['Круглосуточно', '24 / 7'],
+              lines: ['+7 (940) 920-43-73'],
             },
           ].map((item) => (
             <div key={item.title} className="flex gap-4">
