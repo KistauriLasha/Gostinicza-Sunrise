@@ -110,7 +110,7 @@ export default function Rooms() {
                   <div>
                     <p className="text-xs text-muted-foreground">от</p>
                     <p className="font-serif text-2xl text-primary font-light">
-                      {room.price} ₽
+                      {room.price} руб
                       <span className="text-sm text-muted-foreground font-sans"> / ночь</span>
                     </p>
                   </div>
