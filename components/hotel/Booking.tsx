@@ -93,8 +93,9 @@ export default function Booking() {
                   onChange={(e) => setForm({ ...form, room: e.target.value })}
                   className="w-full border border-border bg-background px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors"
                 >
-                  <option value="standard">Стандартный номер</option>
                   <option value="deluxe">Делюкс</option>
+                  <option value="deluxe-king">Делюкс king-size</option>
+                  <option value="junior-suite">Полулюкс</option>
                   <option value="suite">Люкс</option>
                 </select>
               </div>

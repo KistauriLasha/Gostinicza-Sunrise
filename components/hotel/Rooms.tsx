@@ -3,30 +3,39 @@ import { Bath, Wifi, Eye, Wind } from 'lucide-react'
 
 const rooms = [
   {
-    id: 'standard',
-    title: 'Стандартный номер',
-    subtitle: 'Морской бриз',
-    price: '5 900',
+    id: 'deluxe',
+    title: 'Двухместный номер "Делюкс"',
+    subtitle: '',
+    price: '2 500',
     size: '28 м²',
     image: '/images/room-standard.jpg',
     features: ['Вид на море', 'Wi-Fi', 'Кондиционер', 'Ванная'],
   },
   {
-    id: 'deluxe',
-    title: 'Делюкс',
-    subtitle: 'Панорама моря',
-    price: '9 800',
+    id: 'deluxe-king',
+    title: 'Двухместный номер "Делюкс king-size"',
+    subtitle: '',
+    price: '2 500',
     size: '42 м²',
     image: '/images/room-suite.jpg',
     features: ['Панорамный вид', 'Wi-Fi', 'Кондиционер', 'Джакузи'],
   },
   {
-    id: 'suite',
-    title: 'Люкс',
-    subtitle: 'Exclusive Suite',
-    price: '16 500',
-    size: '65 м²',
+    id: 'junior-suite',
+    title: 'Двухместный номер "Полулюкс"',
+    subtitle: '',
+    price: '2 700',
+    size: '42 м²',
     image: '/images/room-standard.jpg',
+    features: ['Вид на море', 'Wi-Fi', 'Кондиционер', 'Ванная'],
+  },
+  {
+    id: 'suite',
+    title: 'Двухкомнатный номер "Люкс"',
+    subtitle: '',
+    price: '3 500',
+    size: '65 м²',
+    image: '/images/room-suite.jpg',
     features: ['Вид на море и сосны', 'Wi-Fi', 'Кондиционер', 'Отдельная гостиная'],
   },
 ]
@@ -56,7 +65,7 @@ export default function Rooms() {
           <div className="w-12 h-px bg-primary mx-auto mt-6" />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {rooms.map((room) => (
             <article
               key={room.id}
@@ -101,7 +110,7 @@ export default function Rooms() {
                   <div>
                     <p className="text-xs text-muted-foreground">от</p>
                     <p className="font-serif text-2xl text-primary font-light">
-                      {room.price} ₽
+                      {room.price} руб
                       <span className="text-sm text-muted-foreground font-sans"> / ночь</span>
                     </p>
                   </div>
