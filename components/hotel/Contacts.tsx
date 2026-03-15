@@ -19,7 +19,7 @@ export default function Contacts() {
             {
               icon: <MapPin size={24} />,
               title: 'Адрес',
-              lines: ['Абхазия, Пицунда', 'ул. Агрба, 12'],
+              lines: ['Абхазия, Пицунда', 'ул Агрба 20/2'],
             },
             {
               icon: <Phone size={24} />,

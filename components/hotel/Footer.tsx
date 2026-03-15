@@ -57,7 +57,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-4">
               <li className="flex gap-3 items-start text-sm text-primary-foreground/70">
                 <MapPin size={14} className="mt-0.5 shrink-0 text-accent" />
-                Абхазия, Пицунда, ул. Агрба, 12
+                Абхазия, Пицунда, ул Агрба 20/2
               </li>
               <li className="flex gap-3 items-center text-sm text-primary-foreground/70">
                 <Phone size={14} className="shrink-0 text-accent" />
