@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Bath, Wifi, Eye, Wind } from 'lucide-react'
+import { Bath, Wifi, Wind } from 'lucide-react'
 
 const rooms = [
   {
@@ -7,43 +7,40 @@ const rooms = [
     title: 'Двухместный номер "Делюкс"',
     subtitle: '',
     price: '2 500',
-    size: '28 м²',
+    size: '19 м²',
     image: '/images/placeholder.svg',
-    features: ['Вид на море', 'Wi-Fi', 'Кондиционер', 'Ванная'],
+    features: ['Wi-Fi', 'Кондиционер', 'Ванная'],
   },
   {
     id: 'deluxe-king',
     title: 'Двухместный номер "Делюкс king-size"',
     subtitle: '',
     price: '2 500',
-    size: '42 м²',
+    size: '19 м²',
     image: '/images/placeholder.svg',
-    features: ['Панорамный вид', 'Wi-Fi', 'Кондиционер', 'Джакузи'],
+    features: ['Wi-Fi', 'Кондиционер', 'Джакузи'],
   },
   {
     id: 'junior-suite',
     title: 'Двухместный номер "Полулюкс"',
     subtitle: '',
     price: '2 700',
-    size: '42 м²',
+    size: '19 м²',
     image: '/images/placeholder.svg',
-    features: ['Вид на море', 'Wi-Fi', 'Кондиционер', 'Ванная'],
+    features: ['Wi-Fi', 'Кондиционер', 'Ванная'],
   },
   {
     id: 'suite',
     title: 'Двухкомнатный номер "Люкс"',
     subtitle: '',
     price: '3 500',
-    size: '65 м²',
+    size: '33 м²',
     image: '/images/placeholder.svg',
-    features: ['Вид на море и сосны', 'Wi-Fi', 'Кондиционер', 'Отдельная гостиная'],
+    features: ['Wi-Fi', 'Кондиционер', 'Отдельная гостиная'],
   },
 ]
 
 const icons: Record<string, React.ReactNode> = {
-  'Вид на море': <Eye size={14} />,
-  'Панорамный вид': <Eye size={14} />,
-  'Вид на море и сосны': <Eye size={14} />,
   'Wi-Fi': <Wifi size={14} />,
   'Кондиционер': <Wind size={14} />,
   'Ванная': <Bath size={14} />,
