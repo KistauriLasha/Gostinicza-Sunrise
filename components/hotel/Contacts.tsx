@@ -46,8 +46,8 @@ export default function Contacts() {
         {/* Map placeholder */}
         <div className="w-full h-72 bg-secondary flex items-center justify-center border border-border overflow-hidden">
           <iframe
-            title="Пицунда на карте"
-            src="https://maps.google.com/maps?q=Пицунда,+Абхазия&output=embed&z=13"
+            title="Пицунда на Яндекс Картах"
+            src="https://yandex.ru/map-widget/v1/?text=Пицунда%2C%20ул%20Агрба%2020%2F2&z=16"
             width="100%"
             height="100%"
             style={{ border: 0 }}
