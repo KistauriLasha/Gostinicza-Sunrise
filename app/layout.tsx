@@ -15,7 +15,7 @@ const jost = Jost({
 })
 
 export const metadata: Metadata = {
-  title: 'Гостиница Sunrise | Черноморский курорт в Пицунде',
+  title: 'Гостевой дом Sunrise | Черноморский курорт в Пицунде',
   description: 'Отдых на берегу Чёрного моря в Пицунде. Комфортные номера в 0,3 км от центра города и 1,1 км от моря.',
   generator: 'v0.app',
   icons: {

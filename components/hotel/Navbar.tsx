@@ -44,7 +44,7 @@ export default function Navbar() {
               scrolled ? 'text-muted-foreground' : 'text-white/70'
             }`}
           >
-            Гостиница
+            Гостевой дом
           </span>
         </Link>
 

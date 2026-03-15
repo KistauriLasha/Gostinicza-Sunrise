@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const photos = [
-  { src: '/images/placeholder.svg', alt: 'Гостиница Sunrise' },
+  { src: '/images/placeholder.svg', alt: 'Гостевой дом Sunrise' },
   { src: '/images/placeholder.svg', alt: 'Пляж в Пицунде' },
   { src: '/images/placeholder.svg', alt: 'Номер люкс' },
   { src: '/images/placeholder.svg', alt: 'Стандартный номер' },
