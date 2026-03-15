@@ -21,15 +21,10 @@ export default function About() {
               чистых уголков черноморского побережья. Здесь, среди вековых реликтовых сосен
               и кристально чистой воды, мы создали пространство для истинного отдыха.
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              Наш отель сочетает современный комфорт с местным колоритом: грузинская
-              кухня, бассейн с панорамным видом на море, спа-центр и собственный пляж.
-            </p>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 gap-6 mt-8">
               {[
-                { num: '48', label: 'Номеров' },
-                { num: '300м', label: 'До пляжа' },
-                { num: '15+', label: 'Лет опыта' },
+                { num: '0,3 км', label: 'От центра города' },
+                { num: '1,1 км', label: 'От Чёрного моря Абхазии' },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="font-serif text-3xl font-light text-primary">{stat.num}</p>
