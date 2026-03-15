@@ -5,11 +5,11 @@ import Image from 'next/image'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const photos = [
-  { src: '/images/hero.jpg', alt: 'Гостиница Sunrise' },
-  { src: '/images/beach.jpg', alt: 'Пляж в Пицунде' },
-  { src: '/images/room-suite.jpg', alt: 'Номер люкс' },
-  { src: '/images/room-standard.jpg', alt: 'Стандартный номер' },
-  { src: '/images/beach.jpg', alt: 'Вид на море' },
+  { src: '/images/placeholder.svg', alt: 'Гостиница Sunrise' },
+  { src: '/images/placeholder.svg', alt: 'Пляж в Пицунде' },
+  { src: '/images/placeholder.svg', alt: 'Номер люкс' },
+  { src: '/images/placeholder.svg', alt: 'Стандартный номер' },
+  { src: '/images/placeholder.svg', alt: 'Вид на море' },
 ]
 
 export default function Gallery() {

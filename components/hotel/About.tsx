@@ -40,7 +40,7 @@ export default function About() {
           <div className="relative">
             <div className="aspect-[4/5] relative overflow-hidden">
               <Image
-                src="/images/beach.jpg"
+                src="/images/placeholder.svg"
                 alt="Пляж Пицунды"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"

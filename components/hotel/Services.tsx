@@ -6,7 +6,7 @@ const services = [
     icon: <Umbrella size={28} />,
     title: 'Пляж',
     desc: 'Собственный пляж с шезлонгами и зонтиками в 1,1 км от отеля.',
-    image: '/images/beach.jpg',
+    image: '/images/placeholder.svg',
   },
   {
     icon: <Car size={28} />,
