@@ -41,7 +41,7 @@ export default function Footer() {
               Услуги
             </p>
             <ul className="flex flex-col gap-3">
-              {['Бассейн', 'СПА', 'Пляж', 'Трансфер', 'Детский клуб'].map((item) => (
+              {['Пляж', 'Трансфер'].map((item) => (
                 <li key={item}>
                   <span className="text-sm text-primary-foreground/70">{item}</span>
                 </li>
@@ -67,21 +67,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-primary-foreground/40">
-            © 2025 Гостиница Sunrise. Все права защищены.
+        <div className="border-t border-primary-foreground/10 pt-8 flex justify-center">
+          <p className="text-xs text-primary-foreground/40 tracking-widest">
+            L.K.
           </p>
-          <div className="flex gap-6">
-            {['Политика конфиденциальности', 'Условия бронирования'].map((link) => (
-              <a
-                key={link}
-                href="#"
-                className="text-xs text-primary-foreground/40 hover:text-primary-foreground/70 transition-colors"
-              >
-                {link}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </footer>

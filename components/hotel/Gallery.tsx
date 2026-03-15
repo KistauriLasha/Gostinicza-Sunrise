@@ -7,10 +7,8 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 const photos = [
   { src: '/images/hero.jpg', alt: 'Гостиница Sunrise' },
   { src: '/images/beach.jpg', alt: 'Пляж в Пицунде' },
-  { src: '/images/pool.jpg', alt: 'Бассейн с видом на море' },
   { src: '/images/room-suite.jpg', alt: 'Номер люкс' },
   { src: '/images/room-standard.jpg', alt: 'Стандартный номер' },
-  { src: '/images/spa.jpg', alt: 'СПА-центр' },
   { src: '/images/beach.jpg', alt: 'Вид на море' },
 ]
 
