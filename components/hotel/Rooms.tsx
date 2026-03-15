@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Bath, Wifi, Wind } from 'lucide-react'
+import { Bath, Wifi, Wind, Coffee, Refrigerator, Sofa } from 'lucide-react'
 
 const rooms = [
   {
@@ -7,7 +7,7 @@ const rooms = [
     title: 'Двухместный номер "Делюкс"',
     subtitle: '',
     price: '2 500',
-    size: '19 м²',
+    size: '16 м²',
     image: '/images/placeholder.svg',
     features: ['Wi-Fi', 'Ванная'],
   },
@@ -25,16 +25,16 @@ const rooms = [
     title: 'Двухместный номер "Полулюкс"',
     subtitle: '',
     price: '2 700',
-    size: '19 м²',
+    size: '20 м²',
     image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Ванная'],
+    features: ['Wi-Fi', 'Ванная', 'Чайник', 'Холодильник'],
   },
   {
     id: 'suite',
-    title: 'Двухкомнатный номер "Люкс"',
+    title: 'Улучшенный люкс (трёхместный)',
     subtitle: '',
     price: '3 500',
-    size: '33 м²',
+    size: '36 м²',
     image: '/images/placeholder.svg',
     features: ['Wi-Fi', 'Кондиционер', 'Ванная', 'Отдельная гостиная'],
   },
@@ -44,7 +44,9 @@ const icons: Record<string, React.ReactNode> = {
   'Wi-Fi': <Wifi size={14} />,
   'Кондиционер': <Wind size={14} />,
   'Ванная': <Bath size={14} />,
-  'Отдельная гостиная': <Bath size={14} />,
+  'Отдельная гостиная': <Sofa size={14} />,
+  'Чайник': <Coffee size={14} />,
+  'Холодильник': <Refrigerator size={14} />,
 }
 
 export default function Rooms() {
