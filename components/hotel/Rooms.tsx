@@ -9,7 +9,7 @@ const rooms = [
     price: '2 500',
     size: '19 м²',
     image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Кондиционер', 'Ванная'],
+    features: ['Wi-Fi', 'Ванная'],
   },
   {
     id: 'deluxe-king',
@@ -18,7 +18,7 @@ const rooms = [
     price: '2 500',
     size: '19 м²',
     image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Кондиционер', 'Джакузи'],
+    features: ['Wi-Fi', 'Ванная'],
   },
   {
     id: 'junior-suite',
@@ -27,7 +27,7 @@ const rooms = [
     price: '2 700',
     size: '19 м²',
     image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Кондиционер', 'Ванная'],
+    features: ['Wi-Fi', 'Ванная'],
   },
   {
     id: 'suite',
@@ -36,7 +36,7 @@ const rooms = [
     price: '3 500',
     size: '33 м²',
     image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Кондиционер', 'Отдельная гостиная'],
+    features: ['Wi-Fi', 'Кондиционер', 'Ванная', 'Отдельная гостиная'],
   },
 ]
 
@@ -44,7 +44,6 @@ const icons: Record<string, React.ReactNode> = {
   'Wi-Fi': <Wifi size={14} />,
   'Кондиционер': <Wind size={14} />,
   'Ванная': <Bath size={14} />,
-  'Джакузи': <Bath size={14} />,
   'Отдельная гостиная': <Bath size={14} />,
 }
 
