@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background image */}
       <Image
-        src="/images/hero.jpg"
+        src="/images/placeholder.svg"
         alt="Гостиница Sunrise — вид на море"
         fill
         priority

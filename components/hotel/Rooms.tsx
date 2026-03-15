@@ -8,7 +8,7 @@ const rooms = [
     subtitle: '',
     price: '2 500',
     size: '28 м²',
-    image: '/images/room-standard.jpg',
+    image: '/images/placeholder.svg',
     features: ['Вид на море', 'Wi-Fi', 'Кондиционер', 'Ванная'],
   },
   {
@@ -17,7 +17,7 @@ const rooms = [
     subtitle: '',
     price: '2 500',
     size: '42 м²',
-    image: '/images/room-suite.jpg',
+    image: '/images/placeholder.svg',
     features: ['Панорамный вид', 'Wi-Fi', 'Кондиционер', 'Джакузи'],
   },
   {
@@ -26,7 +26,7 @@ const rooms = [
     subtitle: '',
     price: '2 700',
     size: '42 м²',
-    image: '/images/room-standard.jpg',
+    image: '/images/placeholder.svg',
     features: ['Вид на море', 'Wi-Fi', 'Кондиционер', 'Ванная'],
   },
   {
@@ -35,7 +35,7 @@ const rooms = [
     subtitle: '',
     price: '3 500',
     size: '65 м²',
-    image: '/images/room-suite.jpg',
+    image: '/images/placeholder.svg',
     features: ['Вид на море и сосны', 'Wi-Fi', 'Кондиционер', 'Отдельная гостиная'],
   },
 ]
