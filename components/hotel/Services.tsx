@@ -5,13 +5,21 @@ const services = [
   {
     icon: <Umbrella size={28} />,
     title: 'Пляж',
-    desc: 'Собственный пляж с шезлонгами и зонтиками в 1,1 км от отеля.',
+    desc: 'Гостевой дом Sunrise расположен в городе Пицунда, в 20 минутах ходьбы от 2 пляжей на побережье Черного моря.',
     image: '/images/placeholder.svg',
   },
   {
     icon: <Car size={28} />,
-    title: 'Трансфер',
-    desc: 'Встреча в аэропорту Сочи или Адлера, организация экскурсий.',
+    title: '',
+    desc: `Места на парковке и Wi-Fi предоставляются бесплатно.
+
+Из некоторых номеров открывается вид на горы или сад.
+
+Стойка регистрации открыта круглосуточно.
+
+При гостевом доме организован прокат велосипедов, а в окрестностях популярны пешеходный туризм и рыбная ловля.
+
+Адлер находится в 47 км от гостевого дома.`,
     image: null,
   },
 ]
@@ -31,8 +39,8 @@ export default function Services() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {services.map((s) => (
-            <div key={s.title} className="relative group">
+          {services.map((s, index) => (
+            <div key={index} className="relative group">
               {s.image ? (
                 <div className="relative h-80 overflow-hidden">
                   <Image
@@ -44,15 +52,25 @@ export default function Services() {
                   <div className="absolute inset-0 bg-foreground/50" />
                   <div className="absolute inset-0 p-8 flex flex-col justify-end">
                     <div className="text-accent mb-3">{s.icon}</div>
-                    <h3 className="font-serif text-2xl text-white font-light mb-2">{s.title}</h3>
-                    <p className="text-white/75 text-sm leading-relaxed">{s.desc}</p>
+                    {s.title && (
+                      <h3 className="font-serif text-2xl text-white font-light mb-2">{s.title}</h3>
+                    )}
+                    <p className="text-white/75 text-sm leading-relaxed whitespace-pre-line">
+                      {s.desc}
+                    </p>
                   </div>
                 </div>
               ) : (
-                <div className="bg-secondary p-8 h-80 flex flex-col justify-center">
+                <div className="bg-secondary p-8 min-h-[20rem] h-full flex flex-col justify-start">
                   <div className="text-primary mb-4">{s.icon}</div>
-                  <h3 className="font-serif text-2xl text-foreground font-light mb-2">{s.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+                  {s.title && (
+                    <h3 className="font-serif text-2xl text-foreground font-light mb-2">
+                      {s.title}
+                    </h3>
+                  )}
+                  <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line">
+                    {s.desc}
+                  </p>
                 </div>
               )}
             </div>
