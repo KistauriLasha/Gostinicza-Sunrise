@@ -67,21 +67,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-primary-foreground/10 pt-8 flex items-center justify-center">
           <p className="text-xs text-primary-foreground/40">
-            © 2025 Гостиница Sunrise. Все права защищены.
+            L.K.
           </p>
-          <div className="flex gap-6">
-            {['Политика конфиденциальности', 'Условия бронирования'].map((link) => (
-              <a
-                key={link}
-                href="#"
-                className="text-xs text-primary-foreground/40 hover:text-primary-foreground/70 transition-colors"
-              >
-                {link}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </footer>
