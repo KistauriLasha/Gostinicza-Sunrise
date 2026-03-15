@@ -41,7 +41,7 @@ export default function Footer() {
               Услуги
             </p>
             <ul className="flex flex-col gap-3">
-              {['Пляж', 'Трансфер'].map((item) => (
+              {['Пляж'].map((item) => (
                 <li key={item}>
                   <span className="text-sm text-primary-foreground/70">{item}</span>
                 </li>
