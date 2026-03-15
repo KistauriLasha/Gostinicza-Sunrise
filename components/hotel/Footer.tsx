@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="md:col-span-1">
             <p className="font-serif text-2xl font-medium tracking-wider mb-1">SUNRISE</p>
             <p className="text-xs tracking-[0.25em] uppercase text-primary-foreground/50 mb-4">
-              Гостиница
+              Гостевой дом
             </p>
             <p className="text-primary-foreground/60 text-sm leading-relaxed">
               Лучший курортный отель на черноморском побережье Абхазии.

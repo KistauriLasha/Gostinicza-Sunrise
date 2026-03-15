@@ -7,7 +7,7 @@ export default function Hero() {
       {/* Background image */}
       <Image
         src="/images/placeholder.svg"
-        alt="Гостиница Sunrise — вид на море"
+        alt="Гостевой дом Sunrise — вид на море"
         fill
         priority
         className="object-cover object-center"
@@ -21,7 +21,7 @@ export default function Hero() {
           Абхазия · Пицунда · Чёрное море
         </p>
         <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-light leading-none tracking-wide text-balance mb-8">
-          Добро пожаловать в гостиницу Sunrise
+          Добро пожаловать в гостевой дом Sunrise
         </h1>
         <p className="text-white/80 text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-10 font-light">
           Лучший отдых на побережье
