@@ -96,7 +96,7 @@ export default function Booking() {
                   <option value="deluxe-comfort">Делюкс комфорт</option>
                   <option value="deluxe-king">Делюкс king-size</option>
                   <option value="junior-suite">Полулюкс</option>
-                  <option value="suite">Люкс</option>
+                  <option value="suite">Улучшенный люкс</option>
                 </select>
               </div>
             </div>

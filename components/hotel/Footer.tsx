@@ -19,7 +19,7 @@ export default function Footer() {
               Гостевой дом
             </p>
             <p className="text-primary-foreground/60 text-sm leading-relaxed">
-              Лучший курортный отель на черноморском побережье Абхазии.
+              Лучший курортный гостевой дом на черноморском побережье Абхазии.
             </p>
           </div>
 
