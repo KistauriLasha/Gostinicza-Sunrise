@@ -1,4 +1,11 @@
+import Link from 'next/link'
 import { Phone, Mail, MapPin } from 'lucide-react'
+
+const footerLinks = [
+  { label: 'Номера', href: '/#rooms' },
+  { label: 'Галерея', href: '/#gallery' },
+  { label: 'Контакты', href: '/#contacts' },
+]
 
 export default function Footer() {
   return (
@@ -22,14 +29,14 @@ export default function Footer() {
               Навигация
             </p>
             <ul className="flex flex-col gap-3">
-              {['Номера', 'Галерея', 'Контакты'].map((item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase()}`}
+              {footerLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
                     className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
                   >
-                    {item}
-                  </a>
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
