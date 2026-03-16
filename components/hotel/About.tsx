@@ -1,6 +1,12 @@
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
+import Lightbox from './Lightbox'
 
 export default function About() {
+  const [showLightbox, setShowLightbox] = useState(false)
+
   return (
     <section id="about" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-6">
@@ -38,19 +44,31 @@ export default function About() {
 
           {/* Image */}
           <div className="relative">
-            <div className="aspect-[4/5] relative overflow-hidden">
+            <button
+              onClick={() => setShowLightbox(true)}
+              className="w-full aspect-[4/5] relative overflow-hidden group"
+            >
               <Image
                 src="/images/placeholder.svg"
                 alt="Пляж Пицунды"
                 fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-            </div>
+              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-300" />
+            </button>
             {/* Decorative frame */}
             <div className="absolute -bottom-6 -left-6 w-2/3 h-2/3 border border-primary/30 -z-10" />
           </div>
         </div>
       </div>
+
+      {/* Lightbox */}
+      <Lightbox
+        isOpen={showLightbox}
+        onClose={() => setShowLightbox(false)}
+        images={[{ src: '/images/placeholder.svg', alt: 'Пляж Пицунды' }]}
+        currentIndex={0}
+      />
     </section>
   )
 }

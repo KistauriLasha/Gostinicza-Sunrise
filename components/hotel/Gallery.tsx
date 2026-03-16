@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { X, ChevronLeft, ChevronRight } from 'lucide-react'
+import Lightbox from './Lightbox'
 
 const photos = [
   { src: '/images/placeholder.svg', alt: 'Гостевой дом Sunrise' },
@@ -56,49 +56,14 @@ export default function Gallery() {
       </div>
 
       {/* Lightbox */}
-      {lightbox !== null && (
-        <div
-          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center"
-          onClick={() => setLightbox(null)}
-        >
-          <button
-            className="absolute top-4 right-4 text-white/70 hover:text-white"
-            onClick={() => setLightbox(null)}
-            aria-label="Закрыть"
-          >
-            <X size={32} />
-          </button>
-          <button
-            className="absolute left-4 text-white/70 hover:text-white"
-            onClick={(e) => { e.stopPropagation(); prev() }}
-            aria-label="Предыдущее фото"
-          >
-            <ChevronLeft size={40} />
-          </button>
-          <div
-            className="relative w-full max-w-4xl max-h-[80vh] mx-16"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src={photos[lightbox].src}
-              alt={photos[lightbox].alt}
-              width={1200}
-              height={800}
-              className="object-contain w-full max-h-[80vh]"
-            />
-            <p className="text-center text-white/60 text-sm mt-4">
-              {photos[lightbox].alt}
-            </p>
-          </div>
-          <button
-            className="absolute right-4 text-white/70 hover:text-white"
-            onClick={(e) => { e.stopPropagation(); next() }}
-            aria-label="Следующее фото"
-          >
-            <ChevronRight size={40} />
-          </button>
-        </div>
-      )}
+      <Lightbox
+        isOpen={lightbox !== null}
+        onClose={() => setLightbox(null)}
+        images={photos}
+        currentIndex={lightbox ?? 0}
+        onPrev={prev}
+        onNext={next}
+      />
     </section>
   )
 }

@@ -17,6 +17,7 @@ import {
 import { rooms, getRoomById } from '@/lib/rooms-data'
 import Navbar from '@/components/hotel/Navbar'
 import Footer from '@/components/hotel/Footer'
+import RoomGallery from '@/components/hotel/RoomGallery'
 
 const icons: Record<string, React.ReactNode> = {
   'Wi-Fi': <Wifi size={18} />,
@@ -157,23 +158,7 @@ export default async function RoomPage({ params }: { params: Promise<{ id: strin
             </div>
 
             {/* Gallery */}
-            <div>
-              <h2 className="font-serif text-2xl md:text-3xl font-light text-foreground mb-6">
-                Фотографии
-              </h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {room.images.map((img, index) => (
-                  <div key={index} className="relative aspect-[4/3] overflow-hidden">
-                    <Image
-                      src={img}
-                      alt={`${room.title} - фото ${index + 1}`}
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
+            <RoomGallery images={room.images} title={room.title} />
           </div>
 
           {/* Sidebar - Booking Card */}
