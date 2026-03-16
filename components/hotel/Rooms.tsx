@@ -1,60 +1,7 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { ShowerHead, Wifi, Wind, Coffee, Refrigerator, Sofa } from 'lucide-react'
-
-const rooms = [
-  {
-    id: 'deluxe',
-    title: 'Двухместный номер "Делюкс"',
-    subtitle: '',
-    price: '2 500',
-    size: '16 м²',
-    image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Система кондиционирования', 'Душ'],
-  },
-  {
-    id: 'deluxe-comfort',
-    title: 'Двухместный номер "Делюкс комфорт"',
-    subtitle: '',
-    price: '2 500',
-    size: '19 м²',
-    image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Система кондиционирования', 'Душ'],
-  },
-  {
-    id: 'deluxe-king',
-    title: 'Двухместный номер "Делюкс king-size"',
-    subtitle: '',
-    price: '2 500',
-    size: '19 м²',
-    image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Система кондиционирования', 'Душ'],
-  },
-  {
-    id: 'junior-suite',
-    title: 'Двухместный номер "Полулюкс"',
-    subtitle: '',
-    price: '2 700',
-    size: '20 м²',
-    image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Система кондиционирования', 'Душ', 'Чайник', 'Холодильник'],
-  },
-  {
-    id: 'suite',
-    title: 'Улучшенный люкс (трёхместный)',
-    subtitle: '',
-    price: '3 500',
-    size: '36 м²',
-    image: '/images/placeholder.svg',
-    features: [
-      'Wi-Fi',
-      'Система кондиционирования',
-      'Душ',
-      'Отдельная гостиная',
-      'Чайник',
-      'Холодильник',
-    ],
-  },
-]
+import { rooms } from '@/lib/rooms-data'
 
 const icons: Record<string, React.ReactNode> = {
   'Wi-Fi': <Wifi size={14} />,
@@ -85,8 +32,8 @@ export default function Rooms() {
               key={room.id}
               className="group bg-card overflow-hidden w-full md:w-[calc(50%-1rem)]"
             >
-              {/* Image */}
-              <div className="relative h-64 overflow-hidden">
+              {/* Image - Clickable */}
+              <Link href={`/rooms/${room.id}`} className="block relative h-64 overflow-hidden">
                 <Image
                   src={room.image}
                   alt={room.title}
@@ -99,16 +46,18 @@ export default function Rooms() {
                     {room.size}
                   </span>
                 </div>
-              </div>
+              </Link>
 
               {/* Content */}
               <div className="p-6">
                 <p className="text-xs tracking-[0.25em] uppercase text-muted-foreground mb-1">
                   {room.subtitle}
                 </p>
-                <h3 className="font-serif text-2xl font-light text-foreground mb-4">
-                  {room.title}
-                </h3>
+                <Link href={`/rooms/${room.id}`}>
+                  <h3 className="font-serif text-2xl font-light text-foreground mb-4 hover:text-primary transition-colors">
+                    {room.title}
+                  </h3>
+                </Link>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {room.features.map((f) => (
                     <span
@@ -128,12 +77,12 @@ export default function Rooms() {
                       <span className="text-sm text-muted-foreground font-sans"> / ночь</span>
                     </p>
                   </div>
-                  <a
-                    href="#booking"
+                  <Link
+                    href={`/rooms/${room.id}`}
                     className="px-5 py-2.5 bg-primary text-primary-foreground text-xs tracking-widest uppercase hover:bg-accent transition-colors duration-300"
                   >
-                    Выбрать
-                  </a>
+                    Подробнее
+                  </Link>
                 </div>
               </div>
             </article>
