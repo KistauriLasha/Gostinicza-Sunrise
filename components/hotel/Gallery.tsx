@@ -5,11 +5,16 @@ import Image from 'next/image'
 import Lightbox from './Lightbox'
 
 const photos = [
-  { src: '/images/placeholder.svg', alt: 'Гостевой дом Sunrise' },
-  { src: '/images/placeholder.svg', alt: 'Пляж в Пицунде' },
-  { src: '/images/placeholder.svg', alt: 'Номер люкс' },
-  { src: '/images/placeholder.svg', alt: 'Стандартный номер' },
-  { src: '/images/placeholder.svg', alt: 'Вид на море' },
+  { src: '/images/2300477.jpg', alt: 'Фасад гостевого дома Sunrise' },
+  { src: '/images/2300476.jpg', alt: 'Гостевой дом в вечернее время' },
+  { src: '/images/2300484.jpg', alt: 'Вид на здание гостевого дома' },
+  { src: '/images/2300478.jpg', alt: 'Территория гостевого дома' },
+  { src: '/images/2300480.jpg', alt: 'Уютный номер для отдыха' },
+  { src: '/images/1518916.jpg', alt: 'Интерьер номера' },
+  { src: '/images/2300481.jpg', alt: 'Комфортабельный номер' },
+  { src: '/images/2300482.jpg', alt: 'Современная ванная комната' },
+  { src: '/images/2300483.jpg', alt: 'Летняя кухня для гостей' },
+  { src: '/images/2300479.jpg', alt: 'Зона барбекю во дворе' },
 ]
 
 export default function Gallery() {
@@ -40,7 +45,7 @@ export default function Gallery() {
               onClick={() => setLightbox(i)}
               className={`relative overflow-hidden group ${
                 i === 0 ? 'md:col-span-2 md:row-span-2' : ''
-              } ${i === 0 ? 'aspect-square' : 'aspect-square'}`}
+              } aspect-square`}
               aria-label={photo.alt}
             >
               <Image
