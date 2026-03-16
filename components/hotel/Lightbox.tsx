@@ -79,9 +79,6 @@ export default function Lightbox({
           fill
           className="object-contain"
         />
-        <p className="absolute -bottom-10 left-0 right-0 text-center text-white/60 text-sm">
-          {currentImage.alt}
-        </p>
       </div>
 
       {onNext && images.length > 1 && (

@@ -10,7 +10,6 @@ export default function Booking() {
     room: 'standard',
     name: '',
     phone: '',
-    email: '',
   })
   const [submitted, setSubmitted] = useState(false)
 
@@ -94,6 +93,7 @@ export default function Booking() {
                   className="w-full border border-border bg-background px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors"
                 >
                   <option value="deluxe">Делюкс</option>
+                  <option value="deluxe-comfort">Делюкс комфорт</option>
                   <option value="deluxe-king">Делюкс king-size</option>
                   <option value="junior-suite">Полулюкс</option>
                   <option value="suite">Люкс</option>
@@ -101,7 +101,7 @@ export default function Booking() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div>
                 <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
                   Ваше имя
@@ -125,18 +125,6 @@ export default function Booking() {
                   placeholder="+7 (000) 000-00-00"
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                />
-              </div>
-              <div>
-                <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  placeholder="mail@example.com"
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
                   className="w-full border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
                 />
               </div>
