@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-foreground text-primary-foreground py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-10 mb-12">
+        <div className="grid md:grid-cols-3 gap-10 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
             <p className="font-serif text-2xl font-medium tracking-wider mb-1">SUNRISE</p>
@@ -22,7 +22,7 @@ export default function Footer() {
               Навигация
             </p>
             <ul className="flex flex-col gap-3">
-              {['Номера', 'Услуги', 'Галерея', 'Контакты'].map((item) => (
+              {['Номера', 'Галерея', 'Контакты'].map((item) => (
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
@@ -30,20 +30,6 @@ export default function Footer() {
                   >
                     {item}
                   </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <p className="text-xs tracking-widest uppercase text-primary-foreground/50 mb-5">
-              Услуги
-            </p>
-            <ul className="flex flex-col gap-3">
-              {['Пляж'].map((item) => (
-                <li key={item}>
-                  <span className="text-sm text-primary-foreground/70">{item}</span>
                 </li>
               ))}
             </ul>
