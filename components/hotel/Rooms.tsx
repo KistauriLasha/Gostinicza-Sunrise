@@ -9,7 +9,16 @@ const rooms = [
     price: '2 500',
     size: '16 м²',
     image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Ванная'],
+    features: ['Wi-Fi', 'Система кондиционирования', 'Ванная'],
+  },
+  {
+    id: 'deluxe-comfort',
+    title: 'Двухместный номер "Делюкс комфорт"',
+    subtitle: '',
+    price: '2 500',
+    size: '19 м²',
+    image: '/images/placeholder.svg',
+    features: ['Wi-Fi', 'Система кондиционирования', 'Ванная'],
   },
   {
     id: 'deluxe-king',
@@ -18,7 +27,7 @@ const rooms = [
     price: '2 500',
     size: '19 м²',
     image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Ванная'],
+    features: ['Wi-Fi', 'Система кондиционирования', 'Ванная'],
   },
   {
     id: 'junior-suite',
@@ -27,7 +36,7 @@ const rooms = [
     price: '2 700',
     size: '20 м²',
     image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Ванная', 'Чайник', 'Холодильник'],
+    features: ['Wi-Fi', 'Система кондиционирования', 'Ванная', 'Чайник', 'Холодильник'],
   },
   {
     id: 'suite',
@@ -36,13 +45,13 @@ const rooms = [
     price: '3 500',
     size: '36 м²',
     image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Кондиционер', 'Ванная', 'Отдельная гостиная'],
+    features: ['Wi-Fi', 'Система кондиционирования', 'Ванная', 'Отдельная гостиная'],
   },
 ]
 
 const icons: Record<string, React.ReactNode> = {
   'Wi-Fi': <Wifi size={14} />,
-  'Кондиционер': <Wind size={14} />,
+  'Система кондиционирования': <Wind size={14} />,
   'Ванная': <Bath size={14} />,
   'Отдельная гостиная': <Sofa size={14} />,
   'Чайник': <Coffee size={14} />,
