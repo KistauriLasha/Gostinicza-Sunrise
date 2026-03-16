@@ -6,7 +6,6 @@ import { Menu, X } from 'lucide-react'
 
 const navLinks = [
   { label: 'Номера', href: '#rooms' },
-  { label: 'Услуги', href: '#services' },
   { label: 'Галерея', href: '#gallery' },
   { label: 'Контакты', href: '#contacts' },
 ]
@@ -23,6 +22,7 @@ export default function Navbar() {
 
   return (
     <header
+      id="top"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm'
@@ -31,7 +31,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex flex-col leading-none">
+        <Link href="/#top" className="flex flex-col leading-none">
           <span
             className={`font-serif text-2xl font-medium tracking-wider transition-colors ${
               scrolled ? 'text-foreground' : 'text-white'
