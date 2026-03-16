@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Bath, Wifi, Wind, Coffee, Refrigerator, Sofa } from 'lucide-react'
+import { ShowerHead, Wifi, Wind, Coffee, Refrigerator, Sofa } from 'lucide-react'
 
 const rooms = [
   {
@@ -9,7 +9,7 @@ const rooms = [
     price: '2 500',
     size: '16 м²',
     image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Система кондиционирования', 'Ванная'],
+    features: ['Wi-Fi', 'Система кондиционирования', 'Душ'],
   },
   {
     id: 'deluxe-comfort',
@@ -18,7 +18,7 @@ const rooms = [
     price: '2 500',
     size: '19 м²',
     image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Система кондиционирования', 'Ванная'],
+    features: ['Wi-Fi', 'Система кондиционирования', 'Душ'],
   },
   {
     id: 'deluxe-king',
@@ -27,7 +27,7 @@ const rooms = [
     price: '2 500',
     size: '19 м²',
     image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Система кондиционирования', 'Ванная'],
+    features: ['Wi-Fi', 'Система кондиционирования', 'Душ'],
   },
   {
     id: 'junior-suite',
@@ -36,7 +36,7 @@ const rooms = [
     price: '2 700',
     size: '20 м²',
     image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Система кондиционирования', 'Ванная', 'Чайник', 'Холодильник'],
+    features: ['Wi-Fi', 'Система кондиционирования', 'Душ', 'Чайник', 'Холодильник'],
   },
   {
     id: 'suite',
@@ -45,14 +45,14 @@ const rooms = [
     price: '3 500',
     size: '36 м²',
     image: '/images/placeholder.svg',
-    features: ['Wi-Fi', 'Система кондиционирования', 'Ванная', 'Отдельная гостиная'],
+    features: ['Wi-Fi', 'Система кондиционирования', 'Душ', 'Отдельная гостиная'],
   },
 ]
 
 const icons: Record<string, React.ReactNode> = {
   'Wi-Fi': <Wifi size={14} />,
   'Система кондиционирования': <Wind size={14} />,
-  'Ванная': <Bath size={14} />,
+  'Душ': <ShowerHead size={14} />,
   'Отдельная гостиная': <Sofa size={14} />,
   'Чайник': <Coffee size={14} />,
   'Холодильник': <Refrigerator size={14} />,
@@ -72,11 +72,11 @@ export default function Rooms() {
           <div className="w-12 h-px bg-primary mx-auto mt-6" />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="flex flex-wrap justify-center gap-8">
           {rooms.map((room) => (
             <article
               key={room.id}
-              className="group bg-card overflow-hidden"
+              className="group bg-card overflow-hidden w-full md:w-[calc(50%-1rem)]"
             >
               {/* Image */}
               <div className="relative h-64 overflow-hidden">
