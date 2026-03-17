@@ -20,20 +20,12 @@ export const metadata: Metadata = {
   generator: 'v0.app',
   icons: {
     icon: [
-      {
-        url: '/images/placeholder.svg',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/images/placeholder.svg',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/images/placeholder.svg',
-        type: 'image/svg+xml',
-      },
+      { url: '/favicon.ico' },
+      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
     ],
-    apple: '/images/placeholder.svg',
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
 }
 
