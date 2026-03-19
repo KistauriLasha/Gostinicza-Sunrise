@@ -170,16 +170,19 @@ export function RoomBookingCard({ room }: RoomBookingCardProps) {
                     </p>
                   </div>
                 </div>
+              ) : !dateRange?.from || !dateRange?.to ? (
+                <Button
+                  asChild
+                  className="w-full py-6 text-sm tracking-widest uppercase bg-primary text-primary-foreground hover:bg-accent transition-colors duration-300"
+                >
+                  <Link href={`/rooms/${room.id}`}>Подробнее</Link>
+                </Button>
               ) : (
                 <Button
                   onClick={handleBookNow}
-                  disabled={!dateRange?.from || !dateRange?.to}
-                  className="w-full py-6 text-sm tracking-widest uppercase bg-primary text-primary-foreground hover:bg-accent transition-colors duration-300 disabled:opacity-50"
+                  className="w-full py-6 text-sm tracking-widest uppercase bg-primary text-primary-foreground hover:bg-accent transition-colors duration-300"
                 >
-                  {!dateRange?.from || !dateRange?.to
-                    ? 'Выберите даты'
-                    : 'Забронировать'
-                  }
+                  Забронировать
                 </Button>
               )}
             </div>
