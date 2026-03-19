@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 
 const navLinks = [
-  { label: 'Номера', href: '/#rooms' },
+  { label: 'Номера', href: '/#rooms-booking' },
   { label: 'Галерея', href: '/#gallery' },
   { label: 'Контакты', href: '/#contacts' },
 ]
@@ -62,7 +62,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="/#booking"
+            href="/#rooms-booking"
             className="ml-4 px-6 py-2 border text-sm tracking-widest uppercase transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:border-primary border-white/70 text-white"
           >
             Забронировать
@@ -93,7 +93,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="/#booking"
+            href="/#rooms-booking"
             onClick={() => setOpen(false)}
             className="mt-2 px-6 py-3 bg-primary text-primary-foreground text-center text-sm tracking-widest uppercase"
           >

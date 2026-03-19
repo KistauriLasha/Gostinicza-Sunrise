@@ -1,7 +1,5 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import {
   ShowerHead,
   Wifi,
@@ -14,10 +12,13 @@ import {
   Maximize,
   Check,
 } from 'lucide-react'
+import Link from 'next/link'
+import Image from 'next/image'
 import { rooms, getRoomById } from '@/lib/rooms-data'
 import Navbar from '@/components/hotel/Navbar'
 import Footer from '@/components/hotel/Footer'
 import RoomGallery from '@/components/hotel/RoomGallery'
+import RoomBookingSidebar from './RoomBookingSidebar'
 
 const icons: Record<string, React.ReactNode> = {
   'Wi-Fi': <Wifi size={18} />,
@@ -91,7 +92,7 @@ export default async function RoomPage({ params }: { params: Promise<{ id: strin
       {/* Back Link */}
       <div className="max-w-6xl mx-auto px-6 py-6">
         <Link
-          href="/#rooms"
+          href="/#rooms-booking"
           className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm"
         >
           <ArrowLeft size={16} />
@@ -163,37 +164,7 @@ export default async function RoomPage({ params }: { params: Promise<{ id: strin
 
           {/* Sidebar - Booking Card */}
           <div className="lg:col-span-1">
-            <div className="sticky top-8 bg-card border border-border p-6">
-              <div className="mb-6">
-                <p className="text-xs text-muted-foreground">от</p>
-                <p className="font-serif text-3xl text-primary font-light">
-                  {room.price} руб
-                  <span className="text-base text-muted-foreground font-sans"> / ночь</span>
-                </p>
-              </div>
-
-              <div className="space-y-4 mb-6 pb-6 border-b border-border">
-                <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Площадь</span>
-                  <span className="text-foreground">{room.size}</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Вместимость</span>
-                  <span className="text-foreground">До {room.capacity} гостей</span>
-                </div>
-              </div>
-
-              <Link
-                href="/#booking"
-                className="block w-full text-center px-6 py-3 bg-primary text-primary-foreground text-sm tracking-widest uppercase hover:bg-accent transition-colors duration-300"
-              >
-                Забронировать
-              </Link>
-
-              <p className="text-xs text-muted-foreground text-center mt-4">
-                Бесплатная отмена за 24 часа до заезда
-              </p>
-            </div>
+            <RoomBookingSidebar room={room} />
           </div>
         </div>
       </section>
