@@ -7,15 +7,41 @@ export default function Booking() {
     checkIn: '',
     checkOut: '',
     adults: '2',
-    room: 'standard',
+    room: 'deluxe',
     name: '',
     phone: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setIsSubmitting(true)
+    setError(null)
+
+    try {
+      const response = await fetch('/book', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setSubmitted(true)
+      } else {
+        setError(data.error || 'Произошла ошибка при бронировании. Пожалуйста, попробуйте еще раз.')
+      }
+    } catch (err) {
+      console.error('Booking error:', err)
+      setError('Произошла сетевая ошибка. Проверьте подключение и попробуйте снова.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -37,11 +63,16 @@ export default function Booking() {
               Спасибо за заявку!
             </p>
             <p className="text-primary-foreground/70">
-              Мы свяжемся с вами в течение нескольких часов для подтверждения бронирования.
+              Ваше бронирование успешно создано. Мы свяжемся с вами в ближайшее время для подтверждения.
             </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="bg-background p-8 md:p-12">
+            {error && (
+              <div className="mb-6 p-4 bg-destructive/10 border border-destructive text-destructive text-sm">
+                {error}
+              </div>
+            )}
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               {/* Dates */}
               <div>
@@ -133,9 +164,10 @@ export default function Booking() {
             <div className="text-center">
               <button
                 type="submit"
-                className="px-16 py-4 bg-primary text-primary-foreground text-sm tracking-[0.25em] uppercase hover:bg-accent transition-colors duration-300"
+                disabled={isSubmitting}
+                className="px-16 py-4 bg-primary text-primary-foreground text-sm tracking-[0.25em] uppercase hover:bg-accent transition-colors duration-300 disabled:opacity-50"
               >
-                Отправить заявку
+                {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
               </button>
               <p className="text-xs text-muted-foreground mt-4">
                 Нажимая кнопку, вы соглашаетесь на обработку персональных данных

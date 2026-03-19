@@ -1,0 +1,27 @@
+
+> my-project@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+- Environments: .env.local
+
+✓ Starting...
+✓ Ready in 727ms
+○ Compiling / ...
+ GET / 200 in 6.0s (compile: 5.1s, render: 818ms)
+ GET / 200 in 293ms (compile: 5ms, render: 287ms)
+ GET / 200 in 267ms (compile: 3ms, render: 264ms)
+Error processing booking: AggregateError:
+    at async POST (app/book/route.ts:36:27)
+  34 |       AND check_out > $2
+  35 |     `;
+> 36 |     const overlapResult = await pool.query(overlapQuery, [room, checkIn, checkOut]);
+     |                           ^
+  37 |
+  38 |     if (overlapResult.rows.length > 0) {
+  39 |       return NextResponse.json( {
+  code: 'ECONNREFUSED'
+}
+ POST /book 500 in 739ms (compile: 511ms, render: 227ms)
