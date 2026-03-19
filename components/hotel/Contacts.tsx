@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
+import MapComponent from './MapComponent'
 
 export default function Contacts() {
   return (
@@ -43,16 +44,9 @@ export default function Contacts() {
           ))}
         </div>
 
-        {/* OpenStreetMap - Пицунда */}
-        <div className="w-full h-72 border border-border overflow-hidden rounded-lg">
-          <iframe
-            title="Гостиница Sunrise в Пицунде"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=40.32%2C43.14%2C40.36%2C43.17&layer=mapnik&marker=43.153%2C40.341"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            loading="lazy"
-          />
+        {/* Интерактивная карта */}
+        <div className="w-full h-72 border border-border overflow-hidden rounded-lg bg-secondary">
+          <MapComponent />
         </div>
         <div className="mt-3 text-center">
           <a 
