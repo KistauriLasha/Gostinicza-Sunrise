@@ -43,16 +43,16 @@ export default function Contacts() {
           ))}
         </div>
 
-        {/* Map placeholder */}
-        <div className="w-full h-72 bg-secondary flex items-center justify-center border border-border overflow-hidden">
+        {/* Яндекс Карты */}
+        <div className="w-full h-72 border border-border overflow-hidden">
           <iframe
-            title="Пицунда на карте"
-            src="https://maps.google.com/maps?q=Пицунда,+Абхазия&output=embed&z=13"
+            title="Гостиница Sunrise на Яндекс Картах"
+            src="https://yandex.ru/map-widget/v1/?ll=41.198150%2C43.147000&z=16&pt=41.198150%2C43.147000,pm2rdm~&l=map&lang=ru_RU"
             width="100%"
             height="100%"
             style={{ border: 0 }}
             loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
           />
         </div>
       </div>
