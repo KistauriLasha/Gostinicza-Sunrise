@@ -43,17 +43,26 @@ export default function Contacts() {
           ))}
         </div>
 
-        {/* Яндекс Карты */}
-        <div className="w-full h-72 border border-border overflow-hidden">
+        {/* OpenStreetMap - Пицунда */}
+        <div className="w-full h-72 border border-border overflow-hidden rounded-lg">
           <iframe
-            title="Гостиница Sunrise на Яндекс Картах"
-            src="https://yandex.ru/map-widget/v1/?ll=41.198150%2C43.147000&z=16&pt=41.198150%2C43.147000,pm2rdm~&l=map&lang=ru_RU"
+            title="Гостиница Sunrise в Пицунде"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=40.32%2C43.14%2C40.36%2C43.17&layer=mapnik&marker=43.153%2C40.341"
             width="100%"
             height="100%"
             style={{ border: 0 }}
             loading="lazy"
-            allowFullScreen
           />
+        </div>
+        <div className="mt-3 text-center">
+          <a 
+            href="https://yandex.ru/maps/?pt=40.341,43.153&z=16&l=map" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-sm text-primary hover:underline"
+          >
+            Открыть в Яндекс Картах
+          </a>
         </div>
       </div>
     </section>
