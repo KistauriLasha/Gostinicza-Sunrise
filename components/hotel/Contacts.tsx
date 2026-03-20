@@ -47,7 +47,7 @@ export default function Contacts() {
         <div className="w-full h-72 bg-secondary flex items-center justify-center border border-border overflow-hidden">
           <iframe
             title="Пицунда на карте"
-            src="https://yandex.ru/map-widget/v1/?text=Пицунда, ул Агрба 20/2&z=16"
+            src="https://yandex.ru/map-widget/v1/?ll=40.347687,43.167589&z=17&pt=40.347687,43.167589,pm2rdm"
             width="100%"
             height="100%"
             style={{ border: 0 }}
