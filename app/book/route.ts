@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import pool from '@/lib/db';
+import { getRoomById } from '@/lib/rooms-data';
 
 export async function POST(request: NextRequest) {
   try {
@@ -56,6 +57,33 @@ export async function POST(request: NextRequest) {
       phone,
       parseInt(adults, 10),
     ]);
+
+    // Send Telegram Notification
+    try {
+      const roomData = getRoomById(room);
+      const roomTitle = roomData ? roomData.title : room;
+      const botToken = process.env.TELEGRAM_BOT_TOKEN;
+      const ownerId = process.env.TELEGRAM_OWNER_ID;
+
+      if (botToken && ownerId) {
+        const message = `🆕 Новое бронирование в Sunrise!\n\nИмя гостя: ${name}\nДаты: ${checkIn} — ${checkOut}\nТелефон: ${phone}\nКатегория: ${roomTitle}`;
+
+        await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            chat_id: ownerId,
+            text: message,
+          }),
+        });
+      } else {
+        console.warn('Telegram notification skipped: Missing TELEGRAM_BOT_TOKEN or TELEGRAM_OWNER_ID');
+      }
+    } catch (tgError) {
+      console.error('Error sending Telegram notification:', tgError);
+    }
 
     return NextResponse.json(
       { message: 'Booking successful', bookingId: insertResult.rows[0].id },
