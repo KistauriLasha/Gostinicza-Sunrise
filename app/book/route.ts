@@ -1,6 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import pool from '@/lib/db';
 
+export async function GET() {
+  try {
+    const result = await pool.query('SELECT * FROM bookings ORDER BY created_at DESC');
+    return NextResponse.json(result.rows);
+  } catch (error) {
+    console.error('Error fetching bookings:', error);
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 }
+    );
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -63,6 +76,30 @@ export async function POST(request: NextRequest) {
     );
   } catch (error) {
     console.error('Error processing booking:', error);
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get('id');
+
+    if (!id) {
+      return NextResponse.json(
+        { error: 'Missing booking ID' },
+        { status: 400 }
+      );
+    }
+
+    await pool.query('DELETE FROM bookings WHERE id = $1', [id]);
+
+    return NextResponse.json({ message: 'Booking deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting booking:', error);
     return NextResponse.json(
       { error: 'Internal Server Error' },
       { status: 500 }

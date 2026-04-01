@@ -14,6 +14,9 @@ export default function Booking() {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [bookingId, setBookingId] = useState<string | null>(null)
+  const [isCancelled, setIsCancelled] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -32,6 +35,7 @@ export default function Booking() {
       const data = await response.json()
 
       if (response.ok) {
+        setBookingId(data.bookingId)
         setSubmitted(true)
       } else {
         setError(data.error || 'Произошла ошибка при бронировании. Пожалуйста, попробуйте еще раз.')
@@ -41,6 +45,31 @@ export default function Booking() {
       setError('Произошла сетевая ошибка. Проверьте подключение и попробуйте снова.')
     } finally {
       setIsSubmitting(false)
+    }
+  }
+
+  const handleDeleteBooking = async () => {
+    if (!bookingId) return
+
+    setIsDeleting(true)
+    setError(null)
+
+    try {
+      const response = await fetch(`/book?id=${bookingId}`, {
+        method: 'DELETE',
+      })
+
+      if (response.ok) {
+        setIsCancelled(true)
+      } else {
+        const data = await response.json()
+        setError(data.error || 'Произошла ошибка при удалении бронирования')
+      }
+    } catch (err) {
+      console.error('Delete error:', err)
+      setError('Произошла сетевая ошибка при удалении')
+    } finally {
+      setIsDeleting(false)
     }
   }
 
@@ -58,13 +87,47 @@ export default function Booking() {
         </div>
 
         {submitted ? (
-          <div className="text-center py-16">
-            <p className="font-serif text-3xl text-primary-foreground font-light mb-4">
-              Спасибо за заявку!
+          <div className="text-center py-16 bg-background p-8 md:p-12">
+            <p className="font-serif text-3xl text-primary font-light mb-4">
+              {isCancelled ? 'Бронирование удалено' : 'Спасибо за заявку!'}
             </p>
-            <p className="text-primary-foreground/70">
-              Ваше бронирование успешно создано. Мы свяжемся с вами в ближайшее время для подтверждения.
+            <p className="text-muted-foreground mb-8">
+              {isCancelled
+                ? 'Ваше бронирование было успешно удалено из системы.'
+                : 'Ваше бронирование успешно создано. Мы свяжемся с вами в ближайшее время для подтверждения.'
+              }
             </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() => {
+                  setSubmitted(false)
+                  setBookingId(null)
+                  setIsCancelled(false)
+                  setForm({
+                    checkIn: '',
+                    checkOut: '',
+                    adults: '2',
+                    room: 'deluxe',
+                    name: '',
+                    phone: '',
+                  })
+                }}
+                className="px-8 py-3 bg-primary text-primary-foreground text-xs tracking-[0.25em] uppercase hover:bg-accent transition-colors"
+              >
+                Забронировать еще раз
+              </button>
+
+              {!isCancelled && bookingId && (
+                <button
+                  onClick={handleDeleteBooking}
+                  disabled={isDeleting}
+                  className="px-8 py-3 border border-destructive text-destructive text-xs tracking-[0.25em] uppercase hover:bg-destructive hover:text-destructive-foreground transition-colors disabled:opacity-50"
+                >
+                  {isDeleting ? 'Удаление...' : 'Удалить бронирование'}
+                </button>
+              )}
+            </div>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="bg-background p-8 md:p-12">
