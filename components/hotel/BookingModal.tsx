@@ -49,7 +49,10 @@ export function BookingModal({
   const [guestName, setGuestName] = React.useState('')
   const [guestPhone, setGuestPhone] = React.useState('')
   const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const [isDeleting, setIsDeleting] = React.useState(false)
   const [error, setError] = React.useState<string | null>(null)
+  const [bookingId, setBookingId] = React.useState<string | null>(null)
+  const [isCancelled, setIsCancelled] = React.useState(false)
   const [bookedDates, setBookedDates] = React.useState<{ from: Date; to: Date }[]>([])
 
   const pricePerNight = parsePriceString(room.price)
@@ -118,26 +121,61 @@ export function BookingModal({
     setIsSubmitting(true)
     setError(null)
 
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    try {
+      const response = await fetch('/book', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          room: room.id,
+          checkIn: format(dateRange.from, 'yyyy-MM-dd'),
+          checkOut: format(dateRange.to, 'yyyy-MM-dd'),
+          name: guestName,
+          phone: guestPhone,
+          adults: room.capacity.toString(),
+        }),
+      })
 
-    const result = createBooking(
-      room.id,
-      guestName,
-      guestPhone,
-      dateRange.from,
-      dateRange.to,
-      totalPrice
-    )
+      const data = await response.json()
 
-    setIsSubmitting(false)
-
-    if ('error' in result) {
-      setError(result.error)
-      return
+      if (response.ok) {
+        setBookingId(data.bookingId)
+        setStep('success')
+      } else {
+        setError(data.error || 'Произошла ошибка при бронировании')
+      }
+    } catch (err) {
+      console.error('Booking error:', err)
+      setError('Произошла сетевая ошибка. Проверьте подключение и попробуйте снова.')
+    } finally {
+      setIsSubmitting(false)
     }
+  }
 
-    setStep('success')
+  const handleDeleteBooking = async () => {
+    if (!bookingId) return
+
+    setIsDeleting(true)
+    setError(null)
+
+    try {
+      const response = await fetch(`/book?id=${bookingId}`, {
+        method: 'DELETE',
+      })
+
+      if (response.ok) {
+        setIsCancelled(true)
+      } else {
+        const data = await response.json()
+        setError(data.error || 'Произошла ошибка при удалении бронирования')
+      }
+    } catch (err) {
+      console.error('Delete error:', err)
+      setError('Произошла сетевая ошибка при удалении')
+    } finally {
+      setIsDeleting(false)
+    }
   }
 
   const handleClose = () => {
@@ -148,6 +186,8 @@ export function BookingModal({
       setDateRange(initialDateRange)
       setGuestName('')
       setGuestPhone('')
+      setBookingId(null)
+      setIsCancelled(false)
       setError(null)
     }, 300)
   }
@@ -390,37 +430,67 @@ export function BookingModal({
               
               <div className="space-y-2">
                 <p className="text-muted-foreground">
-                  Ваше бронирование на номер <strong>{room.title}</strong> успешно оформлено.
+                  {isCancelled
+                    ? 'Ваше бронирование было успешно удалено.'
+                    : <>Ваше бронирование на номер <strong>{room.title}</strong> успешно оформлено.</>
+                  }
                 </p>
-                <p className="text-muted-foreground">
-                  Мы свяжемся с вами по номеру <strong>{guestPhone}</strong> для подтверждения.
-                </p>
+                {!isCancelled && (
+                  <p className="text-muted-foreground">
+                    Мы свяжемся с вами по номеру <strong>{guestPhone}</strong> для подтверждения.
+                  </p>
+                )}
               </div>
 
-              <div className="bg-secondary p-4 text-sm">
-                <div className="flex justify-between mb-2">
-                  <span className="text-muted-foreground">Даты</span>
-                  <span className="font-medium">
-                    {dateRange?.from && dateRange?.to && (
-                      <>
-                        {format(dateRange.from, 'd MMM', { locale: ru })} — {format(dateRange.to, 'd MMM yyyy', { locale: ru })}
-                      </>
-                    )}
-                  </span>
+              {!isCancelled && (
+                <div className="bg-secondary p-4 text-sm">
+                  <div className="flex justify-between mb-2">
+                    <span className="text-muted-foreground">Даты</span>
+                    <span className="font-medium">
+                      {dateRange?.from && dateRange?.to && (
+                        <>
+                          {format(dateRange.from, 'd MMM', { locale: ru })} — {format(dateRange.to, 'd MMM yyyy', { locale: ru })}
+                        </>
+                      )}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">К оплате</span>
+                    <span className="font-serif text-lg text-primary">{formatPrice(totalPrice)} ₽</span>
+                  </div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">К оплате</span>
-                  <span className="font-serif text-lg text-primary">{formatPrice(totalPrice)} ₽</span>
-                </div>
-              </div>
+              )}
 
-              <DialogFooter>
+              {error && (
+                <div className="bg-destructive/10 border border-destructive/20 text-destructive p-4 text-sm">
+                  {error}
+                </div>
+              )}
+
+              <DialogFooter className="flex-col gap-2 sm:flex-col">
                 <Button
                   onClick={handleClose}
                   className="w-full bg-primary text-primary-foreground hover:bg-accent"
                 >
                   Закрыть
                 </Button>
+                {!isCancelled && bookingId && (
+                  <Button
+                    variant="ghost"
+                    onClick={handleDeleteBooking}
+                    disabled={isDeleting}
+                    className="w-full text-destructive hover:text-destructive hover:bg-destructive/10"
+                  >
+                    {isDeleting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Удаление...
+                      </>
+                    ) : (
+                      'Удалить бронирование'
+                    )}
+                  </Button>
+                )}
               </DialogFooter>
             </div>
           )}
