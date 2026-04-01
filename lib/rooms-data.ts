@@ -111,8 +111,13 @@ export const rooms: Room[] = [
     subtitle: 'Премиум размещение',
     price: '3 000',
     size: '36 м²',
-    image: '/images/placeholder.svg',
-    images: ['/images/placeholder.svg', '/images/placeholder.svg', '/images/placeholder.svg'],
+    image: '/images/1B0A1294.jpg',
+    images: [
+      '/images/1B0A1294.jpg',
+      '/images/placeholder.svg',
+      '/images/placeholder.svg',
+      '/images/placeholder.svg',
+    ],
     features: [
       'Wi-Fi',
       'Система кондиционирования',
