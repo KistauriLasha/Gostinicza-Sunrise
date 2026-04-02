@@ -41,8 +41,13 @@ export const rooms: Room[] = [
     subtitle: 'Повышенный комфорт',
     price: '1 500',
     size: '19 м²',
-    image: '/images/placeholder.svg',
-    images: ['/images/placeholder.svg', '/images/placeholder.svg', '/images/placeholder.svg'],
+    image: '/images/1B0A1184.jpg',
+    images: [
+      '/images/1B0A1184.jpg',
+      '/images/placeholder.svg',
+      '/images/placeholder.svg',
+      '/images/placeholder.svg',
+    ],
     features: ['Wi-Fi', 'Система кондиционирования', 'Душ'],
     description:
       'Номер "Делюкс комфорт" предлагает больше пространства и повышенный уровень комфорта. Просторная комната площадью 19 м² с качественной мебелью и продуманным дизайном создаёт атмосферу домашнего уюта. Идеальный выбор для тех, кто ценит комфорт и простор.',
