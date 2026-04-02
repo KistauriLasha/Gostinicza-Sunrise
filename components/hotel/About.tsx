@@ -49,8 +49,8 @@ export default function About() {
               className="w-full aspect-[4/5] relative overflow-hidden group"
             >
               <Image
-                src="/images/placeholder.svg"
-                alt="Пляж Пицунды"
+                src="/images/1B0A1205.jpg"
+                alt="Интерьер гостевого дома"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
@@ -66,7 +66,7 @@ export default function About() {
       <Lightbox
         isOpen={showLightbox}
         onClose={() => setShowLightbox(false)}
-        images={[{ src: '/images/placeholder.svg', alt: 'Пляж Пицунды' }]}
+        images={[{ src: '/images/1B0A1205.jpg', alt: 'Интерьер гостевого дома' }]}
         currentIndex={0}
       />
     </section>
