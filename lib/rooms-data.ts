@@ -87,8 +87,13 @@ export const rooms: Room[] = [
     subtitle: 'Расширенные удобства',
     price: '1 500',
     size: '20 м²',
-    image: '/images/placeholder.svg',
-    images: ['/images/placeholder.svg', '/images/placeholder.svg', '/images/placeholder.svg'],
+    image: '/images/1B0A1273.jpg',
+    images: [
+      '/images/1B0A1273.jpg',
+      '/images/placeholder.svg',
+      '/images/placeholder.svg',
+      '/images/placeholder.svg',
+    ],
     features: ['Wi-Fi', 'Система кондиционирования', 'Душ', 'Чайник', 'Холодильник'],
     description:
       'Номер "Полулюкс" предлагает расширенный набор удобств для комфортного проживания. Помимо стандартного оснащения, в номере есть электрический чайник и холодильник, что позволяет гостям наслаждаться напитками и лёгкими закусками в любое время.',
