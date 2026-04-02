@@ -5,16 +5,14 @@ import Image from 'next/image'
 import Lightbox from './Lightbox'
 
 const photos = [
-  { src: '/images/2300477.jpg', alt: 'Фасад гостевого дома Sunrise' },
-  { src: '/images/2300476.jpg', alt: 'Гостевой дом в вечернее время' },
-  { src: '/images/2300484.jpg', alt: 'Вид на здание гостевого дома' },
-  { src: '/images/2300478.jpg', alt: 'Территория гостевого дома' },
-  { src: '/images/2300480.jpg', alt: 'Уютный номер для отдыха' },
-  { src: '/images/1518916.jpg', alt: 'Интерьер номера' },
-  { src: '/images/2300481.jpg', alt: 'Комфортабельный номер' },
-  { src: '/images/2300482.jpg', alt: 'Современная ванная комната' },
-  { src: '/images/2300483.jpg', alt: 'Летняя кухня для гостей' },
-  { src: '/images/2300479.jpg', alt: 'Зона барбекю во дворе' },
+  { src: '/images/1B0A1028_resized.jpg', alt: 'Бассейн и зона отдыха' },
+  { src: '/images/1B0A1043_resized.jpg', alt: 'Фасад здания' },
+  { src: '/images/1B0A1117_resized.jpg', alt: 'Интерьер спальни' },
+  { src: '/images/1B0A1143_resized.jpg', alt: 'Детали интерьера' },
+  { src: '/images/1B0A1214_resized.jpg', alt: 'Ванная комната' },
+  { src: '/images/1B0A1242_resized.jpg', alt: 'Общая кухня и обеденная зона' },
+  { src: '/images/1B0A1259_resized.jpg', alt: 'Зона барбекю на улице' },
+  { src: '/images/1B0A1316_resized.jpg', alt: 'Вид с террасы/балкона' },
 ]
 
 export default function Gallery() {
