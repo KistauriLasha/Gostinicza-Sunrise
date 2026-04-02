@@ -5,16 +5,14 @@ import Image from 'next/image'
 import Lightbox from './Lightbox'
 
 const photos = [
-  { src: '/images/2300477.jpg', alt: 'Фасад гостевого дома Sunrise' },
-  { src: '/images/2300476.jpg', alt: 'Гостевой дом в вечернее время' },
-  { src: '/images/2300484.jpg', alt: 'Вид на здание гостевого дома' },
-  { src: '/images/2300478.jpg', alt: 'Территория гостевого дома' },
-  { src: '/images/2300480.jpg', alt: 'Уютный номер для отдыха' },
-  { src: '/images/1518916.jpg', alt: 'Интерьер номера' },
-  { src: '/images/2300481.jpg', alt: 'Комфортабельный номер' },
-  { src: '/images/2300482.jpg', alt: 'Современная ванная комната' },
-  { src: '/images/2300483.jpg', alt: 'Летняя кухня для гостей' },
-  { src: '/images/2300479.jpg', alt: 'Зона барбекю во дворе' },
+  { src: '/images/1B0A1028.jpg', alt: 'Фасад гостевого дома в вечернее время' },
+  { src: '/images/1B0A1043.jpg', alt: 'Вид на здание гостевого дома' },
+  { src: '/images/1B0A1117.jpg', alt: 'Уютная зона ресепшн' },
+  { src: '/images/1B0A1143.jpg', alt: 'Интерьер холла гостевого дома' },
+  { src: '/images/1B0A1214.jpg', alt: 'Комфортабельный номер' },
+  { src: '/images/1B0A1242.jpg', alt: 'Детали интерьера номера' },
+  { src: '/images/1B0A1259.jpg', alt: 'Современная душевая комната' },
+  { src: '/images/1B0A1316.jpg', alt: 'Зона отдыха для гостей' },
 ]
 
 export default function Gallery() {
