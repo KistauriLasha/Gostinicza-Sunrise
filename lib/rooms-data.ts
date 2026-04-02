@@ -69,8 +69,12 @@ export const rooms: Room[] = [
     subtitle: 'С большой кроватью',
     price: '1 500',
     size: '19 м²',
-    image: '/images/placeholder.svg',
-    images: ['/images/placeholder.svg', '/images/placeholder.svg', '/images/placeholder.svg'],
+    image: '/images/1B0A1061.jpg',
+    images: [
+      '/images/1B0A1061.jpg',
+      '/images/placeholder.svg',
+      '/images/placeholder.svg',
+    ],
     features: ['Wi-Fi', 'Система кондиционирования', 'Душ'],
     description:
       'Номер "Делюкс king-size" отличается просторной кроватью размера king-size для максимального комфорта во время сна. Номер оформлен в современном стиле с использованием натуральных материалов и спокойных тонов, создающих расслабляющую атмосферу для полноценного отдыха.',
