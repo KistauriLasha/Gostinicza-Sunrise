@@ -19,8 +19,8 @@ export const rooms: Room[] = [
     subtitle: 'Уютный номер для двоих',
     price: '1 500',
     size: '16 м²',
-    image: '/images/placeholder.svg',
-    images: ['/images/placeholder.svg', '/images/placeholder.svg', '/images/placeholder.svg'],
+    image: '/images/1B0A1118.jpg',
+    images: ['/images/1B0A1118.jpg', '/images/placeholder.svg', '/images/placeholder.svg'],
     features: ['Wi-Fi', 'Система кондиционирования', 'Душ'],
     description:
       'Уютный двухместный номер "Делюкс" идеально подходит для комфортного отдыха вдвоём. Номер оснащён всем необходимым для приятного пребывания: удобная двуспальная кровать, современная ванная комната с душем, кондиционер и бесплатный Wi-Fi. Из окна открывается прекрасный вид на территорию гостевого дома.',
