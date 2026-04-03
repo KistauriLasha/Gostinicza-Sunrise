@@ -6,8 +6,8 @@ export default function Hero() {
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background image */}
       <Image
-        src="/images/lobby.jpg"
-        alt="Интерьер холла гостевого дома Sunrise"
+        src="/images/1B0A1027_resized.jpg"
+        alt="Интерьер обеденной зоны и кухни гостевого дома"
         fill
         priority
         sizes="100vw"
