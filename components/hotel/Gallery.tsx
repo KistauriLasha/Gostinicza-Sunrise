@@ -36,14 +36,12 @@ export default function Gallery() {
           <div className="w-12 h-px bg-primary mx-auto mt-6" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 gap-3">
           {photos.map((photo, i) => (
             <button
               key={i}
               onClick={() => setLightbox(i)}
-              className={`relative overflow-hidden group ${
-                i === 0 ? 'md:col-span-2 md:row-span-2' : ''
-              } aspect-square`}
+              className="relative overflow-hidden group aspect-square"
               aria-label={photo.alt}
             >
               <Image
