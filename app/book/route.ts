@@ -1,9 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server';
 import pool from '@/lib/db';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const result = await pool.query('SELECT * FROM bookings ORDER BY created_at DESC');
+    const { searchParams } = new URL(request.url);
+    const room = searchParams.get('room');
+
+    let query = 'SELECT * FROM bookings';
+    const params = [];
+
+    if (room) {
+      query += ' WHERE room_id = $1';
+      params.push(room);
+    }
+
+    query += ' ORDER BY created_at DESC';
+
+    const result = await pool.query(query, params);
     return NextResponse.json(result.rows);
   } catch (error) {
     console.error('Error fetching bookings:', error);

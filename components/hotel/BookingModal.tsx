@@ -22,12 +22,11 @@ import {
   checkAvailability,
   calculateNights,
   calculateTotalPrice,
-  createBooking,
   formatPrice,
   parsePriceString,
-  getBookedDates,
 } from '@/lib/bookings-store'
 import type { Room } from '@/lib/rooms-data'
+import { useBookedDates } from '@/hooks/use-booked-dates'
 
 interface BookingModalProps {
   room: Room
@@ -53,7 +52,7 @@ export function BookingModal({
   const [error, setError] = React.useState<string | null>(null)
   const [bookingId, setBookingId] = React.useState<string | null>(null)
   const [isCancelled, setIsCancelled] = React.useState(false)
-  const [bookedDates, setBookedDates] = React.useState<{ from: Date; to: Date }[]>([])
+  const { bookedDates, refresh: refreshBookedDates } = useBookedDates(room.id)
 
   const pricePerNight = parsePriceString(room.price)
   const nights = dateRange?.from && dateRange?.to 
@@ -66,14 +65,14 @@ export function BookingModal({
   // Check availability when dates change
   const isAvailable = React.useMemo(() => {
     if (!dateRange?.from || !dateRange?.to) return true
-    const { available } = checkAvailability(room.id, dateRange.from, dateRange.to)
+    const { available } = checkAvailability(dateRange.from, dateRange.to, bookedDates)
     return available
-  }, [dateRange, room.id])
+  }, [dateRange, bookedDates])
 
-  // Load booked dates when modal opens
+  // Reset modal state when opened
   React.useEffect(() => {
     if (open) {
-      setBookedDates(getBookedDates(room.id))
+      refreshBookedDates()
       setStep('dates')
       setError(null)
       if (!initialDateRange) {
@@ -141,6 +140,7 @@ export function BookingModal({
 
       if (response.ok) {
         setBookingId(data.bookingId)
+        refreshBookedDates()
         setStep('success')
       } else {
         setError(data.error || 'Произошла ошибка при бронировании')
