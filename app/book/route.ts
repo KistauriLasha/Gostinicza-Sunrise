@@ -1,6 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import pool from '@/lib/db';
 
+/**
+ * Formats a Date object to YYYY-MM-DD in local time
+ */
+function formatLocalDate(date: Date): string {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -17,7 +27,22 @@ export async function GET(request: NextRequest) {
     query += ' ORDER BY created_at DESC';
 
     const result = await pool.query(query, params);
-    return NextResponse.json(result.rows);
+
+    // Format DATE types to YYYY-MM-DD strings for consistent parsing on frontend
+    const rows = result.rows.map(row => {
+      // PostgreSQL DATE type comes as a Date object in pg node driver,
+      // but it's already in the correct local date.
+      const dIn = new Date(row.check_in);
+      const dOut = new Date(row.check_out);
+
+      return {
+        ...row,
+        check_in: formatLocalDate(dIn),
+        check_out: formatLocalDate(dOut),
+      };
+    });
+
+    return NextResponse.json(rows);
   } catch (error) {
     console.error('Error fetching bookings:', error);
     return NextResponse.json(
@@ -40,8 +65,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const checkInDate = new Date(checkIn);
-    const checkOutDate = new Date(checkOut);
+    // Use local date parsing to avoid timezone issues with date strings
+    const [inYear, inMonth, inDay] = checkIn.split('-').map(Number);
+    const [outYear, outMonth, outDay] = checkOut.split('-').map(Number);
+
+    const checkInDate = new Date(inYear, inMonth - 1, inDay);
+    const checkOutDate = new Date(outYear, outMonth - 1, outDay);
 
     if (checkInDate >= checkOutDate) {
       return NextResponse.json(

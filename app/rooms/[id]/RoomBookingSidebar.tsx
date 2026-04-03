@@ -74,6 +74,7 @@ export default function RoomBookingSidebar({ room }: RoomBookingSidebarProps) {
             dateRange={dateRange}
             onDateRangeChange={setDateRange}
             disabledDates={bookedDates}
+            variant="dual"
           />
         </div>
 

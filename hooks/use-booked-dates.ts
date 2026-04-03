@@ -23,10 +23,20 @@ export function useBookedDates(roomId: string) {
       }
       const data: DbBooking[] = await response.json()
 
-      const formattedDates = data.map(booking => ({
-        from: new Date(booking.check_in),
-        to: new Date(booking.check_out)
-      }))
+      const formattedDates = data.map(booking => {
+        // Handle ISO date strings (e.g. "2025-05-10T00:00:00.000Z") correctly
+        // We only care about the date part (YYYY-MM-DD)
+        const checkIn = booking.check_in.split('T')[0];
+        const checkOut = booking.check_out.split('T')[0];
+
+        const [inYear, inMonth, inDay] = checkIn.split('-').map(Number);
+        const [outYear, outMonth, outDay] = checkOut.split('-').map(Number);
+
+        return {
+          from: new Date(inYear, inMonth - 1, inDay),
+          to: new Date(outYear, outMonth - 1, outDay)
+        };
+      })
 
       setBookedDates(formattedDates)
       setError(null)

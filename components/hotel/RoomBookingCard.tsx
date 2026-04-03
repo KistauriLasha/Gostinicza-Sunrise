@@ -122,6 +122,7 @@ export function RoomBookingCard({ room }: RoomBookingCardProps) {
                 dateRange={dateRange}
                 onDateRangeChange={setDateRange}
                 disabledDates={bookedDates}
+                variant="dual"
               />
 
               {/* Price Calculation */}
