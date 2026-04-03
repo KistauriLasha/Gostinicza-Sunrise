@@ -13,9 +13,9 @@ import {
   calculateTotalPrice,
   formatPrice,
   parsePriceString,
-  getBookedDates,
 } from '@/lib/bookings-store'
 import type { Room } from '@/lib/rooms-data'
+import { useBookedDates } from '@/hooks/use-booked-dates'
 
 interface RoomBookingSidebarProps {
   room: Room
@@ -24,7 +24,7 @@ interface RoomBookingSidebarProps {
 export default function RoomBookingSidebar({ room }: RoomBookingSidebarProps) {
   const [dateRange, setDateRange] = React.useState<DateRange | undefined>()
   const [isModalOpen, setIsModalOpen] = React.useState(false)
-  const [bookedDates, setBookedDates] = React.useState<{ from: Date; to: Date }[]>([])
+  const { bookedDates } = useBookedDates(room.id)
 
   const pricePerNight = parsePriceString(room.price)
   const nights = dateRange?.from && dateRange?.to 
@@ -37,20 +37,9 @@ export default function RoomBookingSidebar({ room }: RoomBookingSidebarProps) {
   // Check availability when dates change
   const isAvailable = React.useMemo(() => {
     if (!dateRange?.from || !dateRange?.to) return true
-    const { available } = checkAvailability(room.id, dateRange.from, dateRange.to)
+    const { available } = checkAvailability(dateRange.from, dateRange.to, bookedDates)
     return available
-  }, [dateRange, room.id])
-
-  // Refresh booked dates periodically
-  React.useEffect(() => {
-    const refreshBookedDates = () => {
-      setBookedDates(getBookedDates(room.id))
-    }
-    refreshBookedDates()
-    
-    const interval = setInterval(refreshBookedDates, 5000)
-    return () => clearInterval(interval)
-  }, [room.id])
+  }, [dateRange, bookedDates])
 
   return (
     <>
