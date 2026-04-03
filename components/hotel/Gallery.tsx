@@ -5,14 +5,46 @@ import Image from 'next/image'
 import Lightbox from './Lightbox'
 
 const photos = [
-  { src: '/images/1B0A1028.jpg', alt: 'Фасад гостевого дома в вечернее время' },
-  { src: '/images/1B0A1043.jpg', alt: 'Вид на здание гостевого дома' },
-  { src: '/images/1B0A1117.jpg', alt: 'Уютная зона ресепшн' },
-  { src: '/images/1B0A1143.jpg', alt: 'Интерьер холла гостевого дома' },
-  { src: '/images/1B0A1214.jpg', alt: 'Комфортабельный номер' },
-  { src: '/images/1B0A1242.jpg', alt: 'Детали интерьера номера' },
-  { src: '/images/1B0A1259.jpg', alt: 'Современная душевая комната' },
-  { src: '/images/1B0A1316.jpg', alt: 'Зона отдыха для гостей' },
+  {
+    src: '/images/1B0A1028.jpg',
+    alt: 'Фасад гостевого дома в вечернее время',
+    className: 'col-span-2 row-span-1 h-48 md:h-64',
+  },
+  {
+    src: '/images/1B0A1043.jpg',
+    alt: 'Вид на здание гостевого дома',
+    className: 'col-span-2 row-span-1 h-48 md:h-64',
+  },
+  {
+    src: '/images/1B0A1117.jpg',
+    alt: 'Уютная зона ресепшн',
+    className: 'col-span-1 row-span-2 h-[396px] md:h-[524px]',
+  },
+  {
+    src: '/images/1B0A1143.jpg',
+    alt: 'Интерьер холла гостевого дома',
+    className: 'col-span-1 row-span-2 h-[396px] md:h-[524px]',
+  },
+  {
+    src: '/images/1B0A1214.jpg',
+    alt: 'Комфортабельный номер',
+    className: 'col-span-1 row-span-2 h-[396px] md:h-[524px]',
+  },
+  {
+    src: '/images/1B0A1242.jpg',
+    alt: 'Детали интерьера номера',
+    className: 'col-span-1 row-span-2 h-[396px] md:h-[524px]',
+  },
+  {
+    src: '/images/1B0A1259.jpg',
+    alt: 'Современная душевая комната',
+    className: 'col-span-2 row-span-1 h-48 md:h-64',
+  },
+  {
+    src: '/images/1B0A1316.jpg',
+    alt: 'Зона отдыха для гостей',
+    className: 'col-span-2 row-span-1 h-48 md:h-64',
+  },
 ]
 
 export default function Gallery() {
@@ -36,12 +68,12 @@ export default function Gallery() {
           <div className="w-12 h-px bg-primary mx-auto mt-6" />
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {photos.map((photo, i) => (
             <button
               key={i}
               onClick={() => setLightbox(i)}
-              className="relative overflow-hidden group aspect-square"
+              className={`relative overflow-hidden group ${photo.className}`}
               aria-label={photo.alt}
             >
               <Image
