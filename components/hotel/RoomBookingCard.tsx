@@ -22,12 +22,12 @@ import type { Room } from '@/lib/rooms-data'
 import { useBookedDates } from '@/hooks/use-booked-dates'
 
 const icons: Record<string, React.ReactNode> = {
-  'Wi-Fi': <Wifi size={14} />,
-  'Система кондиционирования': <Wind size={14} />,
-  'Душ': <ShowerHead size={14} />,
-  'Отдельная гостиная': <Sofa size={14} />,
-  'Чайник': <Coffee size={14} />,
-  'Холодильник': <Refrigerator size={14} />,
+  'Wi-Fi': <Wifi size={14} aria-hidden="true" />,
+  'Система кондиционирования': <Wind size={14} aria-hidden="true" />,
+  'Душ': <ShowerHead size={14} aria-hidden="true" />,
+  'Отдельная гостиная': <Sofa size={14} aria-hidden="true" />,
+  'Чайник': <Coffee size={14} aria-hidden="true" />,
+  'Холодильник': <Refrigerator size={14} aria-hidden="true" />,
 }
 
 interface RoomBookingCardProps {
@@ -68,6 +68,7 @@ export function RoomBookingCard({ room }: RoomBookingCardProps) {
               src={room.image}
               alt={room.title}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 320px, 380px"
               className="object-cover group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-foreground/10 group-hover:bg-foreground/5 transition-colors" />
@@ -128,7 +129,7 @@ export function RoomBookingCard({ room }: RoomBookingCardProps) {
                 <div className="bg-secondary p-4 space-y-2">
                   <div className="flex items-center justify-between text-sm">
                     <span className="flex items-center gap-2 text-muted-foreground">
-                      <Moon className="h-4 w-4" />
+                      <Moon className="h-4 w-4" aria-hidden="true" />
                       {nights} {nights === 1 ? 'ночь' : nights < 5 ? 'ночи' : 'ночей'}
                     </span>
                     <span className="text-muted-foreground">
@@ -137,7 +138,7 @@ export function RoomBookingCard({ room }: RoomBookingCardProps) {
                   </div>
                   <div className="flex items-center justify-between border-t border-border pt-2">
                     <span className="flex items-center gap-2 font-medium">
-                      <CreditCard className="h-4 w-4" />
+                      <CreditCard className="h-4 w-4" aria-hidden="true" />
                       Итого
                     </span>
                     <span className="font-serif text-xl text-primary">
@@ -150,7 +151,7 @@ export function RoomBookingCard({ room }: RoomBookingCardProps) {
               {/* Availability Status & Book Button */}
               {dateRange?.from && dateRange?.to && !isAvailable ? (
                 <div className="flex items-center gap-3 p-4 bg-destructive/10 border border-destructive/20 text-destructive">
-                  <CalendarX2 className="h-5 w-5 flex-shrink-0" />
+                  <CalendarX2 className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
                   <div>
                     <p className="font-medium">Номер занят</p>
                     <p className="text-sm opacity-80">

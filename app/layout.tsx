@@ -15,9 +15,26 @@ const jost = Jost({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://v0-gostinicza-sanrajs.vercel.app/'),
   title: 'Гостевой дом Sunrise | Черноморский курорт в Пицунде',
   description: 'Отдых на берегу Чёрного моря в Пицунде. Комфортные номера в 0,3 км от центра города и 1,1 км от моря.',
   generator: 'v0.app',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Гостевой дом Sunrise | Черноморский курорт в Пицунде',
+    description: 'Отдых на берегу Чёрного моря в Пицунде. Комфортные номера в 0,3 км от центра города и 1,1 км от моря.',
+    url: 'https://v0-gostinicza-sanrajs.vercel.app/',
+    siteName: 'Sunrise Пицунда',
+    locale: 'ru_RU',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Гостевой дом Sunrise | Черноморский курорт в Пицунде',
+    description: 'Отдых на берегу Чёрного моря в Пицунде. Комфортные номера в 0,3 км от центра города и 1,1 км от моря.',
+  },
   icons: {
     icon: [
       { url: '/favicon.ico' },

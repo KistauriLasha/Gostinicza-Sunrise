@@ -14,8 +14,10 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-10 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <p className="font-serif text-2xl font-medium tracking-wider mb-1">SUNRISE</p>
-            <p className="text-xs tracking-[0.25em] uppercase text-primary-foreground/50 mb-4">
+            <Link href="/#top" className="inline-block" aria-label="На главную">
+              <p className="font-serif text-2xl font-medium tracking-wider mb-1">SUNRISE</p>
+            </Link>
+            <p className="text-xs tracking-[0.25em] uppercase text-primary-foreground/50 mb-4 ml-0.5">
               Гостевой дом
             </p>
             <p className="text-primary-foreground/60 text-sm leading-relaxed">
@@ -49,11 +51,11 @@ export default function Footer() {
             </p>
             <ul className="flex flex-col gap-4">
               <li className="flex gap-3 items-start text-sm text-primary-foreground/70">
-                <MapPin size={14} className="mt-0.5 shrink-0 text-accent" />
+                <MapPin size={14} aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
                 Абхазия, Пицунда, ул Агрба 20/2
               </li>
               <li className="flex gap-3 items-center text-sm text-primary-foreground/70">
-                <Phone size={14} className="shrink-0 text-accent" />
+                <Phone size={14} aria-hidden="true" className="shrink-0 text-accent" />
                 +7 (940) 920-43-73
               </li>
             </ul>

@@ -62,7 +62,7 @@ export function DateRangePicker({
               !dateRange && 'text-muted-foreground'
             )}
           >
-            <CalendarIcon className="mr-3 h-4 w-4 text-muted-foreground" />
+            <CalendarIcon aria-hidden="true" className="mr-3 h-4 w-4 text-muted-foreground" />
             {dateRange?.from ? (
               dateRange.to ? (
                 <div className="flex flex-col gap-0.5">

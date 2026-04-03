@@ -50,8 +50,9 @@ export default function About() {
             >
               <Image
                 src="/images/1B0A1205.jpg"
-                alt="Интерьер гостевого дома"
+                alt="Интерьер и детали декора в гостевом доме Sunrise"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-300" />

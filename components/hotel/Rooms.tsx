@@ -4,12 +4,12 @@ import { ShowerHead, Wifi, Wind, Coffee, Refrigerator, Sofa } from 'lucide-react
 import { rooms } from '@/lib/rooms-data'
 
 const icons: Record<string, React.ReactNode> = {
-  'Wi-Fi': <Wifi size={14} />,
-  'Система кондиционирования': <Wind size={14} />,
-  'Душ': <ShowerHead size={14} />,
-  'Отдельная гостиная': <Sofa size={14} />,
-  'Чайник': <Coffee size={14} />,
-  'Холодильник': <Refrigerator size={14} />,
+  'Wi-Fi': <Wifi size={14} aria-hidden="true" />,
+  'Система кондиционирования': <Wind size={14} aria-hidden="true" />,
+  'Душ': <ShowerHead size={14} aria-hidden="true" />,
+  'Отдельная гостиная': <Sofa size={14} aria-hidden="true" />,
+  'Чайник': <Coffee size={14} aria-hidden="true" />,
+  'Холодильник': <Refrigerator size={14} aria-hidden="true" />,
 }
 
 export default function Rooms() {
@@ -38,6 +38,7 @@ export default function Rooms() {
                   src={room.image}
                   alt={room.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-foreground/10 group-hover:bg-foreground/5 transition-colors" />

@@ -31,7 +31,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/#top" className="flex flex-col leading-none">
+        <Link href="/#top" className="flex flex-col leading-none" aria-label="На главную">
           <span
             className={`font-serif text-2xl font-medium tracking-wider transition-colors ${
               scrolled ? 'text-foreground' : 'text-white'
@@ -75,7 +75,7 @@ export default function Navbar() {
           className={`md:hidden transition-colors ${scrolled ? 'text-foreground' : 'text-white'}`}
           aria-label="Меню"
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
         </button>
       </div>
 

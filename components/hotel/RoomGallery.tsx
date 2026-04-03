@@ -38,6 +38,7 @@ export default function RoomGallery({ images, title }: RoomGalleryProps) {
               src={img}
               alt={`${title} - фото ${index + 1}`}
               fill
+              sizes="(max-width: 768px) 50vw, 33vw"
               className="object-cover group-hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-300" />

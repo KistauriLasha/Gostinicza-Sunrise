@@ -7,9 +7,10 @@ export default function Hero() {
       {/* Background image */}
       <Image
         src="/images/lobby.jpg"
-        alt="Гостевой дом Sunrise — вид на море"
+        alt="Интерьер холла гостевого дома Sunrise"
         fill
         priority
+        sizes="100vw"
         className="object-cover object-center"
       />
       {/* Overlay */}
@@ -48,7 +49,7 @@ export default function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 hover:text-white transition-colors animate-bounce"
         aria-label="Прокрутить вниз"
       >
-        <ChevronDown size={28} />
+        <ChevronDown size={28} aria-hidden="true" />
       </a>
     </section>
   )
