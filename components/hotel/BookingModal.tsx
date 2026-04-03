@@ -222,6 +222,7 @@ export function BookingModal({
                   dateRange={dateRange}
                   onDateRangeChange={setDateRange}
                   disabledDates={bookedDates}
+                  variant="dual"
                 />
               </div>
 

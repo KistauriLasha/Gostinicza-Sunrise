@@ -1,11 +1,15 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
+import { format } from 'date-fns'
+import type { DateRange } from 'react-day-picker'
+import { DateRangePicker } from './DateRangePicker'
+import { useBookedDates } from '@/hooks/use-booked-dates'
+import { checkAvailability } from '@/lib/bookings-store'
 
 export default function Booking() {
+  const [dateRange, setDateRange] = useState<DateRange | undefined>()
   const [form, setForm] = useState({
-    checkIn: '',
-    checkOut: '',
     adults: '2',
     room: 'deluxe',
     name: '',
@@ -18,10 +22,30 @@ export default function Booking() {
   const [bookingId, setBookingId] = useState<string | null>(null)
   const [isCancelled, setIsCancelled] = useState(false)
 
+  const { bookedDates } = useBookedDates(form.room)
+
+  const isAvailable = useMemo(() => {
+    if (!dateRange?.from || !dateRange?.to) return true
+    const { available } = checkAvailability(dateRange.from, dateRange.to, bookedDates)
+    return available
+  }, [dateRange, bookedDates])
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     setError(null)
+
+    if (!dateRange?.from || !dateRange?.to) {
+      setError('Пожалуйста, выберите даты заезда и выезда')
+      setIsSubmitting(false)
+      return
+    }
+
+    if (!isAvailable) {
+      setError('Выбранные даты уже забронированы. Пожалуйста, выберите другие даты.')
+      setIsSubmitting(false)
+      return
+    }
 
     try {
       const response = await fetch('/book', {
@@ -29,7 +53,11 @@ export default function Booking() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          checkIn: format(dateRange.from, 'yyyy-MM-dd'),
+          checkOut: format(dateRange.to, 'yyyy-MM-dd'),
+        }),
       })
 
       const data = await response.json()
@@ -104,9 +132,8 @@ export default function Booking() {
                   setSubmitted(false)
                   setBookingId(null)
                   setIsCancelled(false)
+                  setDateRange(undefined)
                   setForm({
-                    checkIn: '',
-                    checkOut: '',
                     adults: '2',
                     room: 'deluxe',
                     name: '',
@@ -138,31 +165,21 @@ export default function Booking() {
             )}
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               {/* Dates */}
-              <div>
-                <label htmlFor="checkIn" className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
-                  Дата заезда
+              <div className="md:col-span-2">
+                <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
+                  Выберите даты проживания
                 </label>
-                <input
-                  id="checkIn"
-                  type="date"
-                  required
-                  value={form.checkIn}
-                  onChange={(e) => setForm({ ...form, checkIn: e.target.value })}
-                  className="w-full border border-border bg-background px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors"
+                <DateRangePicker
+                  dateRange={dateRange}
+                  onDateRangeChange={setDateRange}
+                  disabledDates={bookedDates}
+                  variant="dual"
                 />
-              </div>
-              <div>
-                <label htmlFor="checkOut" className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
-                  Дата выезда
-                </label>
-                <input
-                  id="checkOut"
-                  type="date"
-                  required
-                  value={form.checkOut}
-                  onChange={(e) => setForm({ ...form, checkOut: e.target.value })}
-                  className="w-full border border-border bg-background px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors"
-                />
+                {!isAvailable && dateRange?.from && dateRange?.to && (
+                  <p className="text-destructive text-xs mt-2 uppercase tracking-wider">
+                    Этот номер уже забронирован на выбранные даты
+                  </p>
+                )}
               </div>
               {/* Guests + Room type */}
               <div>
@@ -233,8 +250,8 @@ export default function Booking() {
             <div className="text-center">
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="px-16 py-4 bg-primary text-primary-foreground text-sm tracking-[0.25em] uppercase hover:bg-accent transition-colors duration-300 disabled:opacity-50"
+                disabled={isSubmitting || !isAvailable || !dateRange?.from || !dateRange?.to}
+                className="px-16 py-4 bg-primary text-primary-foreground text-sm tracking-[0.25em] uppercase hover:bg-accent transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
               </button>
