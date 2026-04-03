@@ -229,14 +229,14 @@ export function BookingModal({
                 <div className="bg-secondary p-4 space-y-3">
                   <div className="flex items-center justify-between text-sm">
                     <span className="flex items-center gap-2 text-muted-foreground">
-                      <Moon className="h-4 w-4" />
+                    <Moon className="h-4 w-4" aria-hidden="true" />
                       Количество ночей
                     </span>
                     <span className="font-medium">{nights}</span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
                     <span className="flex items-center gap-2 text-muted-foreground">
-                      <CreditCard className="h-4 w-4" />
+                    <CreditCard className="h-4 w-4" aria-hidden="true" />
                       Цена за ночь
                     </span>
                     <span className="font-medium">{room.price} ₽</span>
@@ -276,7 +276,7 @@ export function BookingModal({
           {step === 'details' && (
             <div className="space-y-6">
               <div className="bg-secondary p-4 flex items-center gap-3">
-                <Calendar className="h-5 w-5 text-primary" />
+                <Calendar className="h-5 w-5 text-primary" aria-hidden="true" />
                 <div>
                   <p className="text-xs text-muted-foreground uppercase tracking-wider">Даты проживания</p>
                   <p className="font-medium">
@@ -296,7 +296,7 @@ export function BookingModal({
                     Ваше имя
                   </Label>
                   <div className="relative">
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" aria-hidden="true" />
                     <Input
                       id="guestName"
                       value={guestName}
@@ -311,7 +311,7 @@ export function BookingModal({
                     Телефон
                   </Label>
                   <div className="relative">
-                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" aria-hidden="true" />
                     <Input
                       id="guestPhone"
                       type="tel"
@@ -402,7 +402,7 @@ export function BookingModal({
                 >
                   {isSubmitting ? (
                     <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
                       Оформление...
                     </>
                   ) : (
@@ -425,7 +425,7 @@ export function BookingModal({
           {step === 'success' && (
             <div className="space-y-6 text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-                <Check className="h-8 w-8 text-primary" />
+                <Check className="h-8 w-8 text-primary" aria-hidden="true" />
               </div>
               
               <div className="space-y-2">
@@ -483,7 +483,7 @@ export function BookingModal({
                   >
                     {isDeleting ? (
                       <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
                         Удаление...
                       </>
                     ) : (

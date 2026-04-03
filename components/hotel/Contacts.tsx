@@ -17,12 +17,12 @@ export default function Contacts() {
         <div className="grid md:grid-cols-2 gap-12 mb-16 max-w-2xl mx-auto">
           {[
             {
-              icon: <MapPin size={24} />,
+              icon: <MapPin size={24} aria-hidden="true" />,
               title: 'Адрес',
               lines: ['Абхазия, Пицунда', 'ул Агрба 20/2'],
             },
             {
-              icon: <Phone size={24} />,
+              icon: <Phone size={24} aria-hidden="true" />,
               title: 'Телефон',
               lines: ['+7 (940) 920-43-73'],
             },

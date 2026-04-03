@@ -139,10 +139,11 @@ export default function Booking() {
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               {/* Dates */}
               <div>
-                <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
+                <label htmlFor="checkIn" className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
                   Дата заезда
                 </label>
                 <input
+                  id="checkIn"
                   type="date"
                   required
                   value={form.checkIn}
@@ -151,10 +152,11 @@ export default function Booking() {
                 />
               </div>
               <div>
-                <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
+                <label htmlFor="checkOut" className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
                   Дата выезда
                 </label>
                 <input
+                  id="checkOut"
                   type="date"
                   required
                   value={form.checkOut}
@@ -164,10 +166,11 @@ export default function Booking() {
               </div>
               {/* Guests + Room type */}
               <div>
-                <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
+                <label htmlFor="adults" className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
                   Взрослых
                 </label>
                 <select
+                  id="adults"
                   value={form.adults}
                   onChange={(e) => setForm({ ...form, adults: e.target.value })}
                   className="w-full border border-border bg-background px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors"
@@ -178,10 +181,11 @@ export default function Booking() {
                 </select>
               </div>
               <div>
-                <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
+                <label htmlFor="roomType" className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
                   Тип номера
                 </label>
                 <select
+                  id="roomType"
                   value={form.room}
                   onChange={(e) => setForm({ ...form, room: e.target.value })}
                   className="w-full border border-border bg-background px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors"
@@ -197,10 +201,11 @@ export default function Booking() {
 
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div>
-                <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
+                <label htmlFor="name" className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
                   Ваше имя
                 </label>
                 <input
+                  id="name"
                   type="text"
                   required
                   placeholder="Иван Иванов"
@@ -210,10 +215,11 @@ export default function Booking() {
                 />
               </div>
               <div>
-                <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
+                <label htmlFor="phone" className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
                   Телефон
                 </label>
                 <input
+                  id="phone"
                   type="tel"
                   required
                   placeholder="+7 (000) 000-00-00"
