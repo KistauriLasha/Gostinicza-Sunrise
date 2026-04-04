@@ -1,5 +1,17 @@
 // Bookings Store - Utility functions for hotel bookings
 
+// Define the booking interface to match the database schema
+export interface DbBooking {
+  id: number;
+  room_id: string;
+  check_in: string;
+  check_out: string;
+  guest_name: string;
+  guest_phone: string;
+  adults: number;
+  created_at: string;
+}
+
 // Calculate number of nights between two dates
 export function calculateNights(checkIn: Date, checkOut: Date): number {
   const diffTime = Math.abs(checkOut.getTime() - checkIn.getTime())
