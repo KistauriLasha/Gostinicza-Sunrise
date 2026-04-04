@@ -2,10 +2,19 @@
 
 import { useState, useMemo } from 'react'
 import { format } from 'date-fns'
+import { ru } from 'date-fns/locale'
 import type { DateRange } from 'react-day-picker'
+import { Calendar, User, CreditCard, Moon } from 'lucide-react'
 import { DateRangePicker } from './DateRangePicker'
 import { useBookedDates } from '@/hooks/use-booked-dates'
-import { checkAvailability } from '@/lib/bookings-store'
+import {
+  checkAvailability,
+  calculateNights,
+  calculateTotalPrice,
+  formatPrice,
+  parsePriceString
+} from '@/lib/bookings-store'
+import { getRoomById } from '@/lib/rooms-data'
 
 export default function Booking() {
   const [dateRange, setDateRange] = useState<DateRange | undefined>()
@@ -22,7 +31,14 @@ export default function Booking() {
   const [bookingId, setBookingId] = useState<string | null>(null)
   const [isCancelled, setIsCancelled] = useState(false)
 
-  const { bookedDates } = useBookedDates(form.room)
+  const { bookedDates, refresh: refreshBookedDates } = useBookedDates(form.room)
+
+  const selectedRoom = useMemo(() => getRoomById(form.room), [form.room])
+  const nights = useMemo(() => (dateRange?.from && dateRange?.to ? calculateNights(dateRange.from, dateRange.to) : 0), [dateRange])
+  const totalPrice = useMemo(() => {
+    if (!selectedRoom || !dateRange?.from || !dateRange?.to) return 0
+    return calculateTotalPrice(parsePriceString(selectedRoom.price), dateRange.from, dateRange.to)
+  }, [selectedRoom, dateRange])
 
   const isAvailable = useMemo(() => {
     if (!dateRange?.from || !dateRange?.to) return true
@@ -64,6 +80,7 @@ export default function Booking() {
 
       if (response.ok) {
         setBookingId(data.bookingId)
+        refreshBookedDates()
         setSubmitted(true)
       } else {
         setError(data.error || 'Произошла ошибка при бронировании. Пожалуйста, попробуйте еще раз.')
@@ -115,16 +132,63 @@ export default function Booking() {
         </div>
 
         {submitted ? (
-          <div className="text-center py-16 bg-background p-8 md:p-12">
-            <p className="font-serif text-3xl text-primary font-light mb-4">
-              {isCancelled ? 'Бронирование удалено' : 'Спасибо за заявку!'}
-            </p>
-            <p className="text-muted-foreground mb-8">
-              {isCancelled
-                ? 'Ваше бронирование было успешно удалено из системы.'
-                : 'Ваше бронирование успешно создано. Мы свяжемся с вами в ближайшее время для подтверждения.'
-              }
-            </p>
+          <div className="bg-background p-8 md:p-12">
+            <div className="text-center mb-10">
+              <p className="font-serif text-3xl text-primary font-light mb-4">
+                {isCancelled ? 'Бронирование удалено' : 'Бронирование подтверждено!'}
+              </p>
+              <p className="text-muted-foreground">
+                {isCancelled
+                  ? 'Ваше бронирование было успешно удалено из системы.'
+                  : 'Ваше бронирование успешно создано. Мы сохранили информацию и свяжемся с вами в ближайшее время.'
+                }
+              </p>
+            </div>
+
+            {!isCancelled && (
+              <div className="max-w-md mx-auto mb-10 space-y-4">
+                <div className="bg-secondary p-6 space-y-4">
+                  <div className="flex items-center gap-3 text-sm">
+                    <User className="h-4 w-4 text-primary" />
+                    <span className="text-muted-foreground uppercase tracking-wider text-[10px]">Гость:</span>
+                    <span className="font-medium ml-auto">{form.name}</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <Calendar className="h-4 w-4 text-primary" />
+                    <span className="text-muted-foreground uppercase tracking-wider text-[10px]">Даты:</span>
+                    <span className="font-medium ml-auto">
+                      {dateRange?.from && dateRange?.to && (
+                        <>
+                          {format(dateRange.from, 'd MMM', { locale: ru })} — {format(dateRange.to, 'd MMM yyyy', { locale: ru })}
+                        </>
+                      )}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <Moon className="h-4 w-4 text-primary" />
+                    <span className="text-muted-foreground uppercase tracking-wider text-[10px]">Ночей:</span>
+                    <span className="font-medium ml-auto">{nights}</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <div className="h-4 w-4 flex items-center justify-center text-primary font-bold">№</div>
+                    <span className="text-muted-foreground uppercase tracking-wider text-[10px]">Номер:</span>
+                    <span className="font-medium ml-auto">{selectedRoom?.title}</span>
+                  </div>
+                  <div className="border-t border-border pt-4 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <CreditCard className="h-5 w-5 text-primary" />
+                      <span className="text-xs uppercase tracking-widest text-muted-foreground">Итого к оплате</span>
+                    </div>
+                    <span className="font-serif text-2xl text-primary">{formatPrice(totalPrice)} ₽</span>
+                  </div>
+                </div>
+                {bookingId && (
+                  <p className="text-[10px] text-center text-muted-foreground uppercase tracking-[0.2em]">
+                    ID бронирования: {bookingId}
+                  </p>
+                )}
+              </div>
+            )}
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button

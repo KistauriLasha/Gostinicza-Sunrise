@@ -438,16 +438,22 @@ export function BookingModal({
                 </p>
                 {!isCancelled && (
                   <p className="text-muted-foreground">
-                    Мы свяжемся с вами по номеру <strong>{guestPhone}</strong> для подтверждения.
+                    Мы сохранили информацию и свяжемся с вами в ближайшее время.
                   </p>
                 )}
               </div>
 
               {!isCancelled && (
-                <div className="bg-secondary p-4 text-sm">
-                  <div className="flex justify-between mb-2">
-                    <span className="text-muted-foreground">Даты</span>
-                    <span className="font-medium">
+                <div className="bg-secondary p-6 space-y-4 text-left">
+                  <div className="flex items-center gap-3 text-sm">
+                    <User className="h-4 w-4 text-primary" />
+                    <span className="text-muted-foreground uppercase tracking-wider text-[10px]">Гость:</span>
+                    <span className="font-medium ml-auto">{guestName}</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <Calendar className="h-4 w-4 text-primary" />
+                    <span className="text-muted-foreground uppercase tracking-wider text-[10px]">Даты:</span>
+                    <span className="font-medium ml-auto">
                       {dateRange?.from && dateRange?.to && (
                         <>
                           {format(dateRange.from, 'd MMM', { locale: ru })} — {format(dateRange.to, 'd MMM yyyy', { locale: ru })}
@@ -455,10 +461,25 @@ export function BookingModal({
                       )}
                     </span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">К оплате</span>
-                    <span className="font-serif text-lg text-primary">{formatPrice(totalPrice)} ₽</span>
+                  <div className="flex items-center gap-3 text-sm">
+                    <Moon className="h-4 w-4 text-primary" />
+                    <span className="text-muted-foreground uppercase tracking-wider text-[10px]">Ночей:</span>
+                    <span className="font-medium ml-auto">{nights}</span>
                   </div>
+                  <div className="border-t border-border pt-4 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <CreditCard className="h-5 w-5 text-primary" />
+                      <span className="text-xs uppercase tracking-widest text-muted-foreground">Итого</span>
+                    </div>
+                    <span className="font-serif text-xl text-primary">{formatPrice(totalPrice)} ₽</span>
+                  </div>
+                  {bookingId && (
+                    <div className="pt-2 text-center">
+                      <p className="text-[10px] text-muted-foreground uppercase tracking-[0.2em]">
+                        ID бронирования: {bookingId}
+                      </p>
+                    </div>
+                  )}
                 </div>
               )}
 
