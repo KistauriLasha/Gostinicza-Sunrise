@@ -29,7 +29,7 @@ export default function Hero() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="#booking"
+            href="#rooms-booking"
             className="px-10 py-4 bg-primary text-primary-foreground text-sm tracking-[0.2em] uppercase font-medium hover:bg-accent transition-colors duration-300"
           >
             Забронировать номер
