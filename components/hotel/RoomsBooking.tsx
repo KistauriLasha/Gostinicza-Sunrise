@@ -15,8 +15,7 @@ export default function RoomsBooking() {
             Выберите номер
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Выберите даты проживания и забронируйте номер онлайн. 
-            Система автоматически проверит доступность и рассчитает стоимость.
+            Ознакомьтесь с нашими номерами и забронируйте проживание через сервис Яндекс Путешествия.
           </p>
           <div className="w-12 h-px bg-primary mx-auto mt-6" />
         </div>
