@@ -61,12 +61,16 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/#rooms-booking"
-            className="ml-4 px-6 py-2 border text-sm tracking-widest uppercase transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:border-primary border-white/70 text-white"
+          <a
+            href="https://travel.yandex.ru/hotels/pitsunda/guest-house-sunrise-pitsunda/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`ml-4 px-6 py-2 border text-sm tracking-widest uppercase transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:border-primary ${
+              scrolled ? 'border-primary text-primary' : 'border-white/70 text-white'
+            }`}
           >
             Забронировать
-          </Link>
+          </a>
         </nav>
 
         {/* Mobile toggle */}
@@ -92,13 +96,15 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/#rooms-booking"
+          <a
+            href="https://travel.yandex.ru/hotels/pitsunda/guest-house-sunrise-pitsunda/"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setOpen(false)}
             className="mt-2 px-6 py-3 bg-primary text-primary-foreground text-center text-sm tracking-widest uppercase"
           >
             Забронировать
-          </Link>
+          </a>
         </div>
       )}
     </header>
