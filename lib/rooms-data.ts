@@ -69,6 +69,7 @@ export const rooms: Room[] = [
     id: 'deluxe-king',
     title: 'Двухместный номер "Делюкс king-size"',
     subtitle: 'С большой кроватью',
+    bookingUrl: 'https://azur.ru/picunda/o/25451/79854',
     price: '1 500',
     size: '19 м²',
     image: '/images/1B0A1061.jpg',
