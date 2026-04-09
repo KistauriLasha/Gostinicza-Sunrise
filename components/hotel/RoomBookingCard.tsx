@@ -93,7 +93,7 @@ export function RoomBookingCard({ room }: RoomBookingCardProps) {
                   asChild
                   className="flex-1 py-6 text-sm tracking-widest uppercase bg-primary text-primary-foreground hover:bg-accent transition-colors duration-300"
                 >
-                  <a href="https://azur.ru/picunda/o/25451" target="_blank" rel="noopener noreferrer">
+                  <a href={room.bookingUrl || "https://azur.ru/picunda/o/25451"} target="_blank" rel="noopener noreferrer">
                     Забронировать
                   </a>
                 </Button>

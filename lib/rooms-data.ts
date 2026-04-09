@@ -10,6 +10,7 @@ export interface Room {
   description: string
   amenities: string[]
   capacity: number
+  bookingUrl?: string
 }
 
 export const rooms: Room[] = [
@@ -17,6 +18,7 @@ export const rooms: Room[] = [
     id: 'deluxe',
     title: 'Двухместный номер "Делюкс"',
     subtitle: 'Уютный номер для двоих',
+    bookingUrl: 'https://azur.ru/picunda/o/25451/79852',
     price: '1 500',
     size: '16 м²',
     image: '/images/1B0A1118.jpg',
