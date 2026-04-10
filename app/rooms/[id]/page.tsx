@@ -68,7 +68,7 @@ export default async function RoomPage({ params }: { params: Promise<{ id: strin
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative h-[50vh] md:h-[60vh]">
+      <section className="relative h-[40vh] md:h-[50vh]">
         <Image
           src={room.image}
           alt={room.title}
@@ -76,17 +76,6 @@ export default async function RoomPage({ params }: { params: Promise<{ id: strin
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-foreground/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-6">
-            <p className="text-xs tracking-[0.35em] uppercase mb-3 text-white/80">
-              {room.subtitle}
-            </p>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-balance">
-              {room.title}
-            </h1>
-          </div>
-        </div>
       </section>
 
       {/* Back Link */}
@@ -98,6 +87,16 @@ export default async function RoomPage({ params }: { params: Promise<{ id: strin
           <ArrowLeft size={16} />
           Назад к номерам
         </Link>
+      </div>
+
+      {/* Title Section */}
+      <div className="max-w-6xl mx-auto px-6 pb-12">
+        <p className="text-xs tracking-[0.35em] uppercase mb-3 text-muted-foreground">
+          {room.subtitle}
+        </p>
+        <h1 className="font-serif text-4xl md:text-5xl font-light text-foreground text-balance">
+          {room.title}
+        </h1>
       </div>
 
       {/* Content */}
