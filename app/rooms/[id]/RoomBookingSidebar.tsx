@@ -11,7 +11,7 @@ interface RoomBookingSidebarProps {
 export default function RoomBookingSidebar({ room }: RoomBookingSidebarProps) {
   return (
     <>
-      <div className="sticky top-8 bg-card border border-border p-6 space-y-6">
+      <div className="sticky top-24 bg-card border border-border p-6 space-y-6">
         {/* Price */}
         <div>
           <p className="text-xs text-muted-foreground">от</p>
