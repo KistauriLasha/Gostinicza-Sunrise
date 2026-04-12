@@ -133,9 +133,13 @@ export const rooms: Room[] = [
     image: '/images/1B0A1294.jpg',
     images: [
       '/images/1B0A1294.jpg',
-      '/images/placeholder.svg',
-      '/images/placeholder.svg',
-      '/images/placeholder.svg',
+      '/images/1B0A1275-HDR_resized.jpg',
+      '/images/1B0A1289-HDR_resized.jpg',
+      '/images/1B0A1292_resized.jpg',
+      '/images/1B0A1296_resized.jpg',
+      '/images/1B0A1303_resized.jpg',
+      '/images/1B0A1309_resized.jpg',
+      '/images/1B0A1312_resized.jpg',
     ],
     features: [
       'Wi-Fi',
