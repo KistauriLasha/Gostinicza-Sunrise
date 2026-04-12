@@ -31,7 +31,7 @@ export default function RoomGallery({ images, title }: RoomGalleryProps) {
         {images.map((img, index) => (
           <button
             key={index}
-            className="relative aspect-[4/3] overflow-hidden group"
+            className="relative aspect-square overflow-hidden group"
             onClick={() => setLightbox(index)}
           >
             <Image
