@@ -72,11 +72,14 @@ export const rooms: Room[] = [
     bookingUrl: 'https://azur.ru/picunda/o/25451/79854',
     price: '1 500',
     size: '19 м²',
-    image: '/images/1B0A1061.jpg',
+    image: '/images/1B0A1061_resized.jpg',
     images: [
-      '/images/1B0A1061.jpg',
-      '/images/placeholder.svg',
-      '/images/placeholder.svg',
+      '/images/1B0A1061_resized.jpg',
+      '/images/1B0A1072_resized.jpg',
+      '/images/1B0A1087_resized.jpg',
+      '/images/1B0A1093_resized.jpg',
+      '/images/1B0A1100_resized.jpg',
+      '/images/1B0A1108_resized.jpg',
     ],
     features: ['Wi-Fi', 'Система кондиционирования', 'Душ'],
     description:
