@@ -8,42 +8,34 @@ const photos = [
   {
     src: '/images/1B0A1028.jpg',
     alt: 'Фасад гостевого дома в вечернее время',
-    className: 'col-span-2 row-span-1 h-48 md:h-64',
   },
   {
     src: '/images/1B0A1043.jpg',
     alt: 'Вид на здание гостевого дома',
-    className: 'col-span-2 row-span-1 h-48 md:h-64',
   },
   {
     src: '/images/1B0A1117.jpg',
     alt: 'Уютная зона ресепшн',
-    className: 'col-span-1 row-span-2 h-[396px] md:h-[524px]',
   },
   {
     src: '/images/1B0A1143.jpg',
     alt: 'Интерьер холла гостевого дома',
-    className: 'col-span-1 row-span-2 h-[396px] md:h-[524px]',
   },
   {
     src: '/images/1B0A1214.jpg',
     alt: 'Комфортабельный номер',
-    className: 'col-span-1 row-span-2 h-[396px] md:h-[524px]',
   },
   {
     src: '/images/1B0A1242.jpg',
     alt: 'Детали интерьера номера',
-    className: 'col-span-1 row-span-2 h-[396px] md:h-[524px]',
   },
   {
     src: '/images/1B0A1259.jpg',
     alt: 'Современная душевая комната',
-    className: 'col-span-2 row-span-1 h-48 md:h-64',
   },
   {
     src: '/images/1B0A1316.jpg',
     alt: 'Зона отдыха для гостей',
-    className: 'col-span-2 row-span-1 h-48 md:h-64',
   },
 ]
 
@@ -73,7 +65,7 @@ export default function Gallery() {
             <button
               key={i}
               onClick={() => setLightbox(i)}
-              className={`relative overflow-hidden group ${photo.className}`}
+              className="relative aspect-square overflow-hidden group"
               aria-label={photo.alt}
             >
               <Image
