@@ -106,9 +106,13 @@ export const rooms: Room[] = [
     image: '/images/1B0A1273.jpg',
     images: [
       '/images/1B0A1273.jpg',
-      '/images/placeholder.svg',
-      '/images/placeholder.svg',
-      '/images/placeholder.svg',
+      '/images/1B0A1214_resized.jpg',
+      '/images/1B0A1230_resized.jpg',
+      '/images/1B0A1269_resized.jpg',
+      '/images/1B0A1254_resized.jpg',
+      '/images/1B0A1266_resized.jpg',
+      '/images/1B0A1259_resized.jpg',
+      '/images/1B0A1260_resized.jpg',
     ],
     features: ['Wi-Fi', 'Система кондиционирования', 'Душ', 'Чайник', 'Холодильник'],
     description:
