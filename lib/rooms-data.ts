@@ -22,7 +22,15 @@ export const rooms: Room[] = [
     price: '1 500',
     size: '16 м²',
     image: '/images/1B0A1118.jpg',
-    images: ['/images/1B0A1118.jpg', '/images/placeholder.svg', '/images/placeholder.svg'],
+    images: [
+      '/images/1B0A1118.jpg',
+      '/images/1B0A1164_resized.jpg',
+      '/images/1B0A1150_resized.jpg',
+      '/images/1B0A1147_resized.jpg',
+      '/images/1B0A1137_resized.jpg',
+      '/images/1B0A1140_resized.jpg',
+      '/images/1B0A1128_resized.jpg',
+    ],
     features: ['Wi-Fi', 'Система кондиционирования', 'Душ'],
     description:
       'Уютный двухместный номер "Делюкс" идеально подходит для комфортного отдыха вдвоём. Номер оснащён всем необходимым для приятного пребывания: удобная двуспальная кровать, современная ванная комната с душем, кондиционер и бесплатный Wi-Fi. Из окна открывается прекрасный вид на территорию гостевого дома.',
