@@ -60,22 +60,29 @@ export default function Gallery() {
           <div className="w-12 h-px bg-primary mx-auto mt-6" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:auto-rows-[300px]">
           {photos.map((photo, i) => (
             <button
               key={i}
               onClick={() => setLightbox(i)}
-              className="relative aspect-square overflow-hidden group"
+              className={`relative overflow-hidden group shadow-lg ${
+                i === 0 ? 'md:col-span-2 md:row-span-2' : ''
+              } ${i === 5 ? 'md:col-span-2' : ''}`}
               aria-label={photo.alt}
             >
               <Image
                 src={photo.src}
                 alt={photo.alt}
                 fill
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                className="object-cover group-hover:scale-110 transition-transform duration-700"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 50vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-1000"
               />
-              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/25 transition-colors duration-300" />
+              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-500" />
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <span className="text-white text-[10px] tracking-[0.3em] uppercase border border-white/40 px-4 py-2 bg-black/20 backdrop-blur-sm">
+                  Просмотр
+                </span>
+              </div>
             </button>
           ))}
         </div>
