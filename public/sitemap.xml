@@ -2,26 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://v0-gostinicza-sanrajs.vercel.app/</loc>
-    <lastmod>2024-05-22</lastmod>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://v0-gostinicza-sanrajs.vercel.app/#rooms</loc>
-    <lastmod>2024-05-22</lastmod>
+    <loc>https://v0-gostinicza-sanrajs.vercel.app/rooms/deluxe</loc>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://v0-gostinicza-sanrajs.vercel.app/#gallery</loc>
-    <lastmod>2024-05-22</lastmod>
+    <loc>https://v0-gostinicza-sanrajs.vercel.app/rooms/deluxe-comfort</loc>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://v0-gostinicza-sanrajs.vercel.app/#contacts</loc>
-    <lastmod>2024-05-22</lastmod>
+    <loc>https://v0-gostinicza-sanrajs.vercel.app/rooms/deluxe-king</loc>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://v0-gostinicza-sanrajs.vercel.app/rooms/junior-suite</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://v0-gostinicza-sanrajs.vercel.app/rooms/suite</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
