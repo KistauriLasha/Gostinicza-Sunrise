@@ -15,7 +15,7 @@ const jost = Jost({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://v0-gostinicza-sanrajs.vercel.app/'),
+  metadataBase: new URL('https://www.guest-house-sunrise.ru/'),
   title: 'Гостевой дом Sunrise | Черноморский курорт в Пицунде',
   description: 'Отдых на берегу Чёрного моря в Пицунде. Комфортные номера в 0,3 км от центра города и 1,1 км от моря.',
   generator: 'v0.app',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Гостевой дом Sunrise | Черноморский курорт в Пицунде',
     description: 'Отдых на берегу Чёрного моря в Пицунде. Комфортные номера в 0,3 км от центра города и 1,1 км от моря.',
-    url: 'https://v0-gostinicza-sanrajs.vercel.app/',
+    url: 'https://www.guest-house-sunrise.ru/',
     siteName: 'Sunrise Пицунда',
     locale: 'ru_RU',
     type: 'website',

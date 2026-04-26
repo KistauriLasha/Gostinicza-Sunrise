@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://v0-gostinicza-sanrajs.vercel.app/sitemap.xml
+Sitemap: https://www.guest-house-sunrise.ru/sitemap.xml
